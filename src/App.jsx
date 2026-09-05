@@ -688,6 +688,7 @@ function VisionGuardCaseStudy({ project }) {
 
           <aside className="case-facts">
             <div><span>Project</span><strong>Vision Guard</strong></div>
+            <div><span>Status</span><strong>In Development / Ongoing</strong></div>
             <div><span>Type</span><strong>Academic Cybersecurity / Smart CCTV Project</strong></div>
             <div><span>Focus</span><strong>Unauthorized Access · Network Threats · Physical Tampering</strong></div>
             <div><span>Environment</span><strong>Isolated CCTV LAN + Independent Alert Path</strong></div>
@@ -838,13 +839,12 @@ function VisionGuardCaseStudy({ project }) {
         <div className="section-heading">
           <div>
             <Eyebrow>06 / PROJECT EVIDENCE</Eyebrow>
-            <h2>Real screenshots will live here.</h2>
+            <h2>Development evidence and real UI screenshots will be added as the build progresses.</h2>
             <p className="gallery-intro">
-              The portfolio repo does not contain Vision Guard UI captures yet, so this section is intentionally honest
-              rather than using mock product screenshots.
+              Vision Guard is still under active development. The portfolio repo does not yet contain final working UI captures, so this section stays clearly marked as in progress rather than presenting mockups as finished product evidence.
             </p>
           </div>
-          <span className="interface-badge pending">SCREENSHOTS TO ADD</span>
+          <span className="interface-badge pending">IN DEVELOPMENT</span>
         </div>
 
         <div className="vision-evidence-grid">
