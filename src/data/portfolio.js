@@ -16,12 +16,12 @@ export const projects = [
     category: 'Cybersecurity / Smart Surveillance',
     summary:
       'A smart CCTV monitoring system designed to detect unauthorized access, network threats and physical tampering.',
-    stack: ['React', 'Node.js', 'Express', 'MySQL', 'Security Monitoring'],
+    stack: ['React', 'Node.js', 'Express', 'MySQL', 'CCTV Security'],
     highlights: [
-      'Network and device threat monitoring',
-      'Unauthorized access detection',
-      'Physical tamper awareness',
-      'Alerting and security dashboard',
+      'Cyber + physical CCTV threat monitoring',
+      'Unauthorized access, brute-force and network-anomaly detection',
+      'Physical camera / recorder tamper scenarios',
+      'Isolated-LAN monitoring and independent SIM alert concept',
     ],
   },
   {
