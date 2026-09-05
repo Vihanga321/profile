@@ -634,18 +634,18 @@ function ShenvixCaseStudy({ project }) {
 
 function VisionGuardCaseStudy({ project }) {
   const monitoredThreats = [
-    ['01', 'Brute-force attempts', 'Repeated authentication attempts against CCTV, DVR/NVR or related management interfaces.'],
-    ['02', 'Unauthorized access', 'Unexpected logins, access attempts or account activity outside the expected operator flow.'],
-    ['03', 'Port scanning', 'Discovery-style probing that can indicate an attacker is mapping exposed services.'],
-    ['04', 'RTSP / stream abuse', 'Suspicious access patterns around camera-stream services and unauthorized viewing attempts.'],
-    ['05', 'Traffic spikes & DoS', 'Abnormal network-volume changes that may indicate disruption, flooding or denial-of-service behavior.'],
-    ['06', 'Botnet-like behavior', 'Unusual repeated connections or network activity inconsistent with normal CCTV operation.'],
-    ['07', 'Default / weak credentials', 'Identifying the risk created by unchanged or insecure camera and recorder credentials.'],
-    ['08', 'Firmware / config changes', 'Unexpected configuration or device-state changes that may affect security or recording.'],
-    ['09', 'Unusual login times', 'Access activity occurring outside the expected operating pattern.'],
-    ['10', 'Data exfiltration signals', 'Unexpected outbound or transfer behavior that may indicate footage or data leaving the trusted environment.'],
-    ['11', 'Camera tampering', 'Covering, moving, damaging, powering off or disconnecting a camera or its cable.'],
-    ['12', 'Recorder / storage tampering', 'DVR theft, HDD removal, recording deletion or misuse of recorder credentials.'],
+    ['01', 'Brute-force attempts', 'Repeated authentication attempts against camera or recorder management interfaces.', 'ACCESS'],
+    ['02', 'Unauthorized access', 'Unexpected logins or account activity outside the intended operator flow.', 'ACCESS'],
+    ['03', 'Port scanning', 'Discovery-style probing that may indicate exposed services are being mapped.', 'NETWORK'],
+    ['04', 'RTSP / stream abuse', 'Suspicious access patterns around camera-stream services or unauthorized viewing.', 'STREAM'],
+    ['05', 'Traffic spikes & DoS', 'Abnormal traffic volume that may indicate flooding or service disruption.', 'AVAILABILITY'],
+    ['06', 'Botnet-like behavior', 'Repeated connections or network activity inconsistent with normal CCTV operation.', 'NETWORK'],
+    ['07', 'Default / weak credentials', 'Risk created by unchanged or insecure camera and recorder credentials.', 'ACCESS'],
+    ['08', 'Firmware / config changes', 'Unexpected configuration or device-state changes that can affect security.', 'CONFIG'],
+    ['09', 'Unusual login times', 'Access activity occurring outside the expected operating pattern.', 'ACCESS'],
+    ['10', 'Data exfiltration signals', 'Unexpected outbound transfer behavior that may indicate footage leaving the trusted environment.', 'DATA'],
+    ['11', 'Camera tampering', 'Covering, moving, damaging, powering off or disconnecting a camera.', 'PHYSICAL'],
+    ['12', 'Recorder / storage tampering', 'DVR theft, HDD removal, recording deletion or credential misuse.', 'PHYSICAL'],
   ]
 
   const physicalRisks = [
@@ -668,15 +668,10 @@ function VisionGuardCaseStudy({ project }) {
     ['Alert delivery', 'Escalate high-priority events through the project alert flow, including the later independent SIM-based notification-unit design.'],
   ]
 
-  const implementation = [
-    ['Frontend', 'React', 'Dashboard and operator interface for device, event and alert visibility.'],
-    ['Backend', 'Node.js 20 + Express', 'API, monitoring logic and service orchestration.'],
-    ['Data layer', 'Sequelize + MySQL 8', 'Application data, devices, events and monitoring records.'],
-    ['Monitoring service', 'cameraMonitor', 'Project service responsible for camera/device monitoring behavior.'],
-    ['Alert service', 'alertService', 'Project service responsible for alert handling and notification workflow.'],
-    ['Test device', 'TP-Link Tapo C200', 'Physical IP camera used as part of the project environment.'],
-    ['Network', 'Dialog Wi-Fi router', 'Local router used for the CCTV / test LAN.'],
-    ['Optional edge node', 'Raspberry Pi 4', 'Considered as an optional dedicated device for monitoring or supporting services.'],
+  const technologyGroups = [
+    ['Software', ['React', 'Node.js 20', 'Express', 'Sequelize', 'MySQL 8']],
+    ['Project Services', ['cameraMonitor', 'alertService']],
+    ['Test Hardware', ['TP-Link Tapo C200', 'Dialog Wi-Fi router', 'Raspberry Pi 4 — optional']],
   ]
 
   const contributions = [
@@ -699,23 +694,26 @@ function VisionGuardCaseStudy({ project }) {
   ]
 
   const developmentAreas = [
-    ['Implemented foundation', 'React frontend, Node/Express backend structure, MySQL/Sequelize data layer and monitoring / alert service architecture.'],
-    ['Active build work', 'Detection logic, event handling, device monitoring, alert behavior and full system integration are still being developed and validated.'],
-    ['Hardware validation', 'Tapo C200 / LAN behavior, physical tamper scenarios and the independent notification-unit concept require continued practical testing.'],
-    ['Evidence & UI', 'Final working dashboard, event, device-discovery and test-result screenshots will be added when those screens are stable.'],
+    ['Foundation', 'React, Node.js, Express, Sequelize and MySQL architecture for the application and its core services.'],
+    ['Monitoring', 'Camera and device monitoring, event handling and alert logic are being developed and integrated.'],
+    ['Validation', 'Cyber and physical attack scenarios require continued testing in the controlled hardware environment.'],
+    ['Evidence', 'Final UI captures and validated detection results will be added as the relevant screens stabilize.'],
   ]
 
   return (
     <div className="vision-case">
       <section className="vision-hero">
+        <div className="vision-radar" aria-hidden="true"><span></span><span></span><span></span></div>
         <div className="case-breadcrumb">
           <Link to="/projects">Projects</Link><span>/</span><span>Vision Guard</span>
         </div>
 
         <div className="vision-hero-grid">
           <div>
+            <div className="development-pill"><span></span>IN DEVELOPMENT</div>
             <div className="case-kicker"><span>01</span> CYBERSECURITY / SMART SURVEILLANCE</div>
             <h1>VISION<br/><span>GUARD</span></h1>
+            <p className="vision-full-title">Smart CCTV Monitoring System for Detecting Unauthorized Access and Network Threats</p>
             <p className="vision-lead">
               An in-development smart CCTV security-monitoring system for detecting unauthorized access, network threats
               and physical tampering around surveillance infrastructure — not just watching the camera feed.
@@ -724,14 +722,13 @@ function VisionGuardCaseStudy({ project }) {
           </div>
 
           <aside className="case-facts">
-            <div><span>Full Project Title</span><strong>Smart CCTV Monitoring System for Detecting Unauthorized Access and Network Threats</strong></div>
             <div><span>Status</span><strong>In Development / Ongoing</strong></div>
-            <div><span>Context</span><strong>Group 12 · NIT3003 Project Proposal / Development</strong></div>
-            <div><span>Focus</span><strong>Unauthorized Access · Network Threats · Physical Tampering · Evidence Integrity</strong></div>
-            <div><span>Environment</span><strong>Isolated CCTV LAN + Independent SIM Alert Path</strong></div>
-            <div><span>Application Stack</span><strong>React · Node.js 20 · Express · Sequelize · MySQL 8</strong></div>
-            <div><span>Test Hardware</span><strong>TP-Link Tapo C200 · Dialog Wi-Fi Router · Optional Raspberry Pi 4</strong></div>
-            <div><span>Portfolio Note</span><strong>Group project — this page focuses on the system areas I worked on and the documented project design.</strong></div>
+            <div><span>Project Type</span><strong>Cybersecurity / Smart Surveillance</strong></div>
+            <div><span>Context</span><strong>Group 12 · Academic Project</strong></div>
+            <div><span>Focus</span><strong>Network Security + CCTV Security + Physical Tampering</strong></div>
+            <div><span>Environment</span><strong>Isolated CCTV LAN</strong></div>
+            <div><span>Stack</span><strong>React · Node.js 20 · Express · Sequelize · MySQL 8</strong></div>
+            <div><span>Hardware</span><strong>Tapo C200 · Dialog Router · Raspberry Pi optional</strong></div>
           </aside>
         </div>
       </section>
@@ -743,7 +740,18 @@ function VisionGuardCaseStudy({ project }) {
         <div><strong>Isolated + SIM</strong><span>Local monitoring / alert design</span></div>
       </section>
 
-      <section className="section vision-story">
+      <nav className="case-subnav" aria-label="Vision Guard case study sections">
+        <a href="#vg-overview">Overview</a>
+        <a href="#vg-architecture">Architecture</a>
+        <a href="#vg-threats">Threats</a>
+        <a href="#vg-physical">Physical</a>
+        <a href="#vg-technology">Technology</a>
+        <a href="#vg-integrity">Integrity</a>
+        <a href="#vg-contribution">Contribution</a>
+        <a href="#vg-status">Status</a>
+      </nav>
+
+      <section className="section vision-story case-anchor" id="vg-overview">
         <div className="case-section-title">
           <Eyebrow>01 / THE PROBLEM</Eyebrow>
           <h2>A CCTV system can record an incident and still miss the attack on itself.</h2>
@@ -771,37 +779,25 @@ function VisionGuardCaseStudy({ project }) {
           <p className="screenshot-note">Architecture visualization based on the current project design.</p>
         </div>
 
-        <div className="vision-flow">
-          <div className="vision-flow-node primary">
-            <span>01</span>
-            <strong>CCTV Devices</strong>
-            <small>Camera · DVR/NVR · recorder storage</small>
+        <div className="vision-pipeline" aria-label="Vision Guard monitoring flow">
+          <div className="pipeline-track">
+            <article className="pipeline-node device"><span>01 / DEVICE</span><i aria-hidden="true">C</i><strong>CCTV Devices</strong><small>Camera · DVR/NVR · recorder storage</small></article>
+            <b className="pipeline-arrow" aria-hidden="true">↓</b>
+            <article className="pipeline-node network"><span>02 / NETWORK</span><i aria-hidden="true">L</i><strong>Isolated LAN</strong><small>Dialog router · local surveillance network</small></article>
+            <b className="pipeline-arrow" aria-hidden="true">↓</b>
+            <article className="pipeline-node service"><span>03 / MONITOR</span><i aria-hidden="true">M</i><strong>cameraMonitor</strong><small>Device state · access · traffic signals</small></article>
+            <b className="pipeline-arrow" aria-hidden="true">↓</b>
+            <article className="pipeline-node api"><span>04 / APPLICATION</span><i aria-hidden="true">N</i><strong>Node / Express</strong><small>API · event logic · service orchestration</small></article>
+            <b className="pipeline-arrow" aria-hidden="true">↓</b>
+            <article className="pipeline-node alert"><span>05 / ALERT</span><i aria-hidden="true">A</i><strong>alertService</strong><small>Priority handling · notification routing</small></article>
+            <b className="pipeline-arrow" aria-hidden="true">↓</b>
+            <article className="pipeline-node dashboard"><span>06 / INTERFACE</span><i aria-hidden="true">D</i><strong>React Dashboard</strong><small>Devices · alerts · security state</small></article>
           </div>
-          <div className="vision-flow-arrow">→</div>
-          <div className="vision-flow-node">
-            <span>02</span>
-            <strong>Isolated LAN</strong>
-            <small>Dialog router / local surveillance network</small>
-          </div>
-          <div className="vision-flow-arrow">→</div>
-          <div className="vision-flow-node accent">
-            <span>03</span>
-            <strong>Monitoring Layer</strong>
-            <small>cameraMonitor · access · traffic · device state</small>
-          </div>
-          <div className="vision-flow-arrow">→</div>
-          <div className="vision-flow-stack">
-            <div className="vision-flow-node">
-              <span>04A</span>
-              <strong>React Dashboard</strong>
-              <small>Devices · alerts · security state</small>
-            </div>
-            <div className="vision-flow-node alert">
-              <span>04B</span>
-              <strong>SIM Alert Unit</strong>
-              <small>Independent high-priority notification concept</small>
-            </div>
-          </div>
+          <aside className="pipeline-branch">
+            <span>INDEPENDENT ALERT BRANCH</span>
+            <div><strong>alertService</strong><b aria-hidden="true">→</b><strong>SIM Notification Unit</strong></div>
+            <p>Designed to power on briefly for a critical notification, then power down again.</p>
+          </aside>
         </div>
 
         <div className="vision-flow-notes">
@@ -811,14 +807,14 @@ function VisionGuardCaseStudy({ project }) {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section case-anchor" id="vg-threats">
         <div className="section-heading">
           <div><Eyebrow>03 / MONITORED CYBER THREATS</Eyebrow><h2>The attack surface is bigger than the camera lens.</h2></div>
         </div>
         <div className="vision-threat-grid">
-          {monitoredThreats.map(([number, title, text]) => (
+          {monitoredThreats.map(([number, title, text, category]) => (
             <article key={title}>
-              <span>{number}</span>
+              <div className="threat-meta"><span>{number}</span><small>{category}</small></div>
               <h3>{title}</h3>
               <p>{text}</p>
             </article>
@@ -826,10 +822,10 @@ function VisionGuardCaseStudy({ project }) {
         </div>
       </section>
 
-      <section className="section vision-physical-section">
+      <section className="section vision-physical-section case-anchor" id="vg-physical">
         <div className="case-section-title">
           <Eyebrow>04 / PHYSICAL TAMPER MODEL</Eyebrow>
-          <h2>Some CCTV attacks never touch the network.</h2>
+          <h2>When the attack never touches the network.</h2>
           <p className="section-copy">
             Vision Guard explicitly includes physical failure and tamper scenarios because an attacker can defeat
             surveillance without exploiting software at all.
@@ -860,55 +856,56 @@ function VisionGuardCaseStudy({ project }) {
         </div>
       </section>
 
-      <section className="section architecture-section">
+      <section className="section architecture-section case-anchor" id="vg-architecture">
         <div className="case-section-title">
           <Eyebrow>06 / APPLICATION ARCHITECTURE</Eyebrow>
           <h2>Frontend, monitoring services, data and physical devices.</h2>
         </div>
 
-        <div className="architecture-map vision-architecture-map">
-          <div className="arch-column">
-            <span className="arch-label">INTERFACE</span>
-            <div className="arch-node primary"><small>01</small><strong>React Dashboard</strong><span>Devices · alerts · security state</span></div>
+        <div className="vg-architecture">
+          <div className="vg-architecture-core">
+            <span className="arch-label">APPLICATION PATH</span>
+            <article className="primary"><small>01 / INTERFACE</small><strong>React Dashboard</strong><span>Devices · alerts · security state</span></article>
+            <b aria-hidden="true">↓</b>
+            <article><small>02 / API</small><strong>Node.js / Express</strong><span>API · event handling · backend logic</span></article>
+            <b aria-hidden="true">↓</b>
+            <div className="vg-service-pair">
+              <article><small>03 / SERVICE</small><strong>cameraMonitor</strong><span>Camera and device monitoring</span></article>
+              <article><small>04 / SERVICE</small><strong>alertService</strong><span>Alert and notification workflow</span></article>
+            </div>
+            <b aria-hidden="true">↓</b>
+            <article><small>05 / DATA ACCESS</small><strong>Sequelize</strong><span>Application data access</span></article>
+            <b aria-hidden="true">↓</b>
+            <article><small>06 / DATABASE</small><strong>MySQL 8</strong><span>Devices · events · application records</span></article>
           </div>
-          <div className="arch-arrow">→</div>
-          <div className="arch-column">
-            <span className="arch-label">API / SERVICES</span>
-            <div className="arch-node"><small>02</small><strong>Node.js + Express</strong><span>API · event handling · backend logic</span></div>
-            <div className="arch-node"><small>03</small><strong>cameraMonitor</strong><span>Camera / device monitoring service</span></div>
-            <div className="arch-node"><small>04</small><strong>alertService</strong><span>Alert processing / notification flow</span></div>
-          </div>
-          <div className="arch-arrow">→</div>
-          <div className="arch-column">
-            <span className="arch-label">DATA</span>
-            <div className="arch-node"><small>05</small><strong>Sequelize</strong><span>Application data access</span></div>
-            <div className="arch-node"><small>06</small><strong>MySQL 8</strong><span>Devices · events · application records</span></div>
-          </div>
-          <div className="arch-arrow">→</div>
-          <div className="arch-column">
-            <span className="arch-label">PHYSICAL / ALERT</span>
-            <div className="arch-node accent"><small>07</small><strong>CCTV LAN</strong><span>Tapo C200 · router · recorder environment</span></div>
-            <div className="arch-node"><small>08</small><strong>SIM Unit</strong><span>Independent notification design</span></div>
-          </div>
+          <aside className="vg-external-systems">
+            <span className="arch-label">EXTERNAL / PHYSICAL SYSTEMS</span>
+            {[
+              ['CCTV LAN', 'Isolated surveillance network'],
+              ['Tapo C200', 'Project test camera'],
+              ['Dialog Router', 'Local network environment'],
+              ['Raspberry Pi 4', 'Optional edge node'],
+              ['SIM Notification Unit', 'Independent alert-path design'],
+            ].map(([title, text], index) => <article key={title}><small>0{index + 1}</small><div><strong>{title}</strong><span>{text}</span></div></article>)}
+          </aside>
         </div>
       </section>
 
-      <section className="section vision-implementation">
+      <section className="section vision-implementation case-anchor" id="vg-technology">
         <div className="section-heading">
           <div><Eyebrow>07 / TECHNOLOGY & TEST ENVIRONMENT</Eyebrow><h2>Built as a real cyber-physical prototype environment.</h2></div>
         </div>
-        <div className="vision-implementation-grid">
-          {implementation.map(([label, tech, text]) => (
+        <div className="technology-groups">
+          {technologyGroups.map(([label, items], index) => (
             <article key={label}>
-              <span>{label}</span>
-              <strong>{tech}</strong>
-              <p>{text}</p>
+              <span>0{index + 1} / {label}</span>
+              <div>{items.map(item => <strong key={item}>{item}</strong>)}</div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section vision-integrity-section">
+      <section className="section vision-integrity-section case-anchor" id="vg-integrity">
         <div className="case-section-title">
           <Eyebrow>08 / FOOTAGE & EVIDENCE INTEGRITY CONCEPT</Eyebrow>
           <h2>Detect tampering with the evidence, not only with the camera.</h2>
@@ -929,14 +926,22 @@ function VisionGuardCaseStudy({ project }) {
           ))}
         </div>
 
-        <div className="integrity-storage">
-          <div className="storage-source"><span>FOOTAGE / EVIDENCE</span><strong>Capture</strong></div>
-          <div className="storage-arrow">→</div>
-          <div className="storage-parts">
-            {['DB 01', 'DB 02', 'DB 03', 'DB 04', 'DB 05'].map(item => <span key={item}>{item}</span>)}
+        <div className="integrity-visual">
+          <span className="concept-badge">DESIGN / RESEARCH CONCEPT</span>
+          <div className="integrity-rail">
+            <div className="integrity-stage"><span>INPUT</span><strong>Video / Evidence</strong></div>
+            <b aria-hidden="true">↓</b>
+            <div className="integrity-stage accent"><span>INTEGRITY</span><strong>Hash</strong></div>
+            <b aria-hidden="true">↓</b>
+            <div className="storage-parts">
+              {['DB 01', 'DB 02', 'DB 03', 'DB 04', 'DB 05'].map(item => <span key={item}>{item}</span>)}
+            </div>
+            <b aria-hidden="true">↓</b>
+            <div className="integrity-actions">
+              <span>Verify</span><b aria-hidden="true">→</b><span>Reassemble</span><b aria-hidden="true">→</b><span>View</span>
+            </div>
           </div>
-          <div className="storage-arrow">→</div>
-          <div className="storage-source"><span>VERIFY + REASSEMBLE</span><strong>View</strong></div>
+          <p>Five storage parts are explored as a resilience and tamper-detection design—not as a claim of completed implementation.</p>
         </div>
       </section>
 
@@ -950,17 +955,18 @@ function VisionGuardCaseStudy({ project }) {
               evidence slots when the relevant screens and detections are stable.
             </p>
           </div>
-          <span className="interface-badge pending">PROJECT IN DEVELOPMENT</span>
+          <span className="interface-badge pending">REAL BUILD EVIDENCE WILL BE ADDED DURING DEVELOPMENT</span>
         </div>
 
         <div className="vision-evidence-grid">
-          <article><span>01</span><strong>Monitoring Dashboard</strong><p>Final device / threat overview screenshot will be added from the working build.</p></article>
-          <article><span>02</span><strong>Alert / Event View</strong><p>Detection and alert evidence will be added from controlled project testing.</p></article>
-          <article><span>03</span><strong>Device Discovery</strong><p>Camera / device discovery or status evidence will be added as the integration stabilizes.</p></article>
+          <article><span>01 / EVIDENCE SLOT</span><div aria-hidden="true">DASHBOARD</div><strong>Monitoring Dashboard</strong><p>Final device and threat overview capture will be added from the working build.</p></article>
+          <article><span>02 / EVIDENCE SLOT</span><div aria-hidden="true">EVENT</div><strong>Alert / Event View</strong><p>Detection and alert evidence will be added from controlled project testing.</p></article>
+          <article><span>03 / EVIDENCE SLOT</span><div aria-hidden="true">DISCOVERY</div><strong>Device Discovery</strong><p>Camera and device-discovery evidence will be added as integration stabilizes.</p></article>
+          <article><span>04 / EVIDENCE SLOT</span><div aria-hidden="true">TEST</div><strong>Detection Test Result</strong><p>Validated scenario output will be added after repeatable testing is documented.</p></article>
         </div>
       </section>
 
-      <section className="section contribution-section">
+      <section className="section contribution-section case-anchor" id="vg-contribution">
         <div className="case-section-title">
           <Eyebrow>10 / MY CONTRIBUTION</Eyebrow>
           <h2>My work spans the threat model, architecture, application and project documentation.</h2>
@@ -986,7 +992,7 @@ function VisionGuardCaseStudy({ project }) {
         </div>
       </section>
 
-      <section className="section vision-development">
+      <section className="section vision-development case-anchor" id="vg-status">
         <div className="case-section-title">
           <Eyebrow>12 / DEVELOPMENT STATUS</Eyebrow>
           <h2>Complete portfolio case study. Ongoing system build.</h2>
@@ -1019,6 +1025,354 @@ function VisionGuardCaseStudy({ project }) {
   )
 }
 
+const book4TechScreens = [
+  { id: 'home', platform: 'web', label: 'Home', image: '/projects/book4tech/web-home.png', title: 'Marketplace Homepage', description: 'The public entry point introduces Book4Tech, explains the service journey and directs customers toward services or expert discovery.' },
+  { id: 'services', platform: 'web', label: 'Services', image: '/projects/book4tech/web-services.png', title: 'Technology Services', description: 'Customers can explore technology-service categories and move from a service need toward suitable experts.' },
+  { id: 'experts', platform: 'web', label: 'Experts', image: '/projects/book4tech/web-experts.png', title: 'Expert Discovery', description: 'Search, category and sorting controls help customers compare expert profiles, services and marketplace information.' },
+  { id: 'booking', platform: 'web', label: 'Booking', image: '/projects/book4tech/web-booking-service.png', title: 'Book a Service', description: 'A structured booking starts with service and expert selection before moving through schedule, customer details and review.' },
+  { id: 'customer-bookings', platform: 'web', label: 'Customer Dashboard', image: '/projects/book4tech/web-customer-bookings.jpg', title: 'Customer Booking Status', description: 'Customers can review booking progress, quotation state and the actions available around each service request.', compact: true },
+  { id: 'expert-dashboard', platform: 'web', label: 'Expert Dashboard', image: '/projects/book4tech/web-expert-dashboard.png', title: 'Expert Workspace', description: 'The expert portal connects profile visibility, client bookings, chat, service management and earnings-related workflows.', compact: true },
+  { id: 'payment', platform: 'web', label: 'Payment', image: '/projects/book4tech/web-payment-confirmation.png', title: 'Payment Confirmation State', description: 'A booking-connected quotation view communicates payment status and the operational state that follows approval.', compact: true },
+  { id: 'reviews', platform: 'web', label: 'Reviews', image: '/projects/book4tech/web-reviews.png', title: 'Customer Reviews', description: 'The reviews experience presents service feedback and marketplace context around completed work.', compact: true },
+  { id: 'login', platform: 'web', label: 'Login', image: '/projects/book4tech/web-login.png', title: 'Account Access', description: 'The account entry flow supports standard credentials and Google sign-in within the Book4Tech web experience.' },
+  { id: 'contact', platform: 'web', label: 'Contact', image: '/projects/book4tech/web-contact.png', title: 'Support & Contact', description: 'A public support route connects booking, payment and technical-assistance questions to the platform contact workflow.' },
+  { id: 'mobile-welcome', platform: 'mobile', label: 'Mobile Home', image: '/projects/book4tech/mobile-welcome.jpg', title: 'Mobile Welcome Experience', description: 'A compact mobile entry point introduces trusted technology experts, booking and account access.' },
+  { id: 'mobile-experts', platform: 'mobile', label: 'Mobile Browse', image: '/projects/book4tech/mobile-experts.jpg', title: 'Mobile Expert Discovery', description: 'The mobile discovery view keeps expert browsing, service context and navigation available in a compact layout.' },
+]
+
+function Book4TechGallery() {
+  const [platform, setPlatform] = useState('all')
+  const [activeId, setActiveId] = useState(book4TechScreens[0].id)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const filteredScreens = platform === 'all' ? book4TechScreens : book4TechScreens.filter(screen => screen.platform === platform)
+  const activeScreen = filteredScreens.find(screen => screen.id === activeId) || filteredScreens[0]
+  const activeIndex = filteredScreens.findIndex(screen => screen.id === activeScreen.id)
+
+  const selectPlatform = nextPlatform => {
+    const nextScreens = nextPlatform === 'all' ? book4TechScreens : book4TechScreens.filter(screen => screen.platform === nextPlatform)
+    setPlatform(nextPlatform)
+    setActiveId(nextScreens[0].id)
+  }
+
+  const showRelativeScreen = offset => {
+    const nextIndex = (activeIndex + offset + filteredScreens.length) % filteredScreens.length
+    setActiveId(filteredScreens[nextIndex].id)
+  }
+
+  useEffect(() => {
+    if (!lightboxOpen) return undefined
+    const previousOverflow = document.body.style.overflow
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') setLightboxOpen(false)
+      if (event.key === 'ArrowLeft') showRelativeScreen(-1)
+      if (event.key === 'ArrowRight') showRelativeScreen(1)
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [lightboxOpen, activeIndex, filteredScreens])
+
+  return (
+    <>
+      <div className="book-gallery-controls">
+        <div className="platform-toggle" aria-label="Filter screenshots by platform">
+          {['all', 'web', 'mobile'].map(option => <button className={platform === option ? 'active' : ''} key={option} type="button" onClick={() => selectPlatform(option)}>{option.toUpperCase()}</button>)}
+        </div>
+        <div className="book-screen-tabs" role="tablist" aria-label="Book4Tech application screens">
+          {filteredScreens.map(screen => <button className={activeScreen.id === screen.id ? 'active' : ''} key={screen.id} type="button" role="tab" aria-selected={activeScreen.id === screen.id} onClick={() => setActiveId(screen.id)}>{screen.label}</button>)}
+        </div>
+      </div>
+
+      <div className="book-gallery-stage" role="tabpanel" aria-label={activeScreen.title}>
+        <div className="book-gallery-window">
+          <div className="book-gallery-bar"><div aria-hidden="true"><span></span><span></span><span></span></div><strong>BOOK4TECH / {activeScreen.label.toUpperCase()}</strong><small>{activeScreen.platform.toUpperCase()} APPLICATION</small></div>
+          <div className={`book-gallery-canvas ${activeScreen.platform} ${activeScreen.compact ? 'compact' : ''}`}>
+            <button type="button" onClick={() => setLightboxOpen(true)} aria-label={`Enlarge ${activeScreen.title} screenshot`}>
+              <img src={activeScreen.image} alt={`Book4Tech ${activeScreen.title} — real ${activeScreen.platform} application screen`} />
+              <span>Click image to enlarge</span>
+            </button>
+          </div>
+        </div>
+        <div className="book-gallery-caption"><span>{String(activeIndex + 1).padStart(2, '0')} / {activeScreen.platform}</span><div><h3>{activeScreen.title}</h3><p>{activeScreen.description}</p></div></div>
+      </div>
+
+      <div className="book-thumbnails">
+        {filteredScreens.map((screen, index) => <button className={activeScreen.id === screen.id ? 'active' : ''} key={screen.id} type="button" onClick={() => setActiveId(screen.id)} aria-label={`Show ${screen.title}`}><span className={screen.platform}><img src={screen.image} alt="" loading="lazy" /></span><strong>{String(index + 1).padStart(2, '0')} / {screen.label}</strong></button>)}
+      </div>
+
+      {lightboxOpen && <div className="book-lightbox" role="dialog" aria-modal="true" aria-label={`${activeScreen.title} full-screen preview`} onClick={() => setLightboxOpen(false)}>
+        <button className="book-lightbox-close" type="button" onClick={() => setLightboxOpen(false)} aria-label="Close full-screen preview">Close <span>×</span></button>
+        {filteredScreens.length > 1 && <button className="book-lightbox-arrow previous" type="button" onClick={event => { event.stopPropagation(); showRelativeScreen(-1) }} aria-label="Previous screenshot">←</button>}
+        <div className={`book-lightbox-content ${activeScreen.platform}`} onClick={event => event.stopPropagation()}><img src={activeScreen.image} alt={`Book4Tech ${activeScreen.title}`} /><p>{activeScreen.title} <span>— {activeScreen.platform}</span></p></div>
+        {filteredScreens.length > 1 && <button className="book-lightbox-arrow next" type="button" onClick={event => { event.stopPropagation(); showRelativeScreen(1) }} aria-label="Next screenshot">→</button>}
+      </div>}
+    </>
+  )
+}
+
+function Book4TechCaseStudy({ project }) {
+  const userRoles = [
+    ['01', 'Customer', '“I need someone to solve a technology problem.”', 'Discover → Compare → Book → Chat → Pay → Receive Service → Review', 'Customers browse experts, select a service, choose a suitable date and time, submit booking details and communicate with the expert around that booking.'],
+    ['02', 'Expert', '“I want to offer my technical skills.”', 'Profile → Services → Receive Booking → Manage → Chat → Deliver → Earnings Workflow', 'Experts present their services and manage customer bookings, communication and service progress.'],
+    ['03', 'Admin', '“I need to keep the marketplace operating safely.”', 'Verify → Manage → Moderate → Review → Oversee', 'Administrators manage users, expert verification and the operational side of the marketplace.'],
+  ]
+
+  const marketplaceFlow = [
+    ['Discover', 'Browse technology experts.'],
+    ['Expert Profile', 'Understand skills, services and profile information.'],
+    ['Choose Service', 'Select the service needed.'],
+    ['Schedule', 'Choose a preferred date and time.'],
+    ['Your Details', 'Enter contact and service information.'],
+    ['Review', 'Check the booking before submission.'],
+    ['Booking Created', 'The request becomes a structured booking.'],
+    ['Chat', 'Coordinate in the context of the booking.'],
+    ['Payment', 'Use the platform payment workflow where applicable.'],
+    ['Service', 'The expert coordinates or performs the work.'],
+    ['Complete', 'The booking reaches its completion state.'],
+    ['Review', 'Review the service experience where applicable.'],
+  ]
+
+  const chatFeatures = [
+    ['Messaging', 'Customer and expert conversations tied to an active service context.'],
+    ['Attachments', 'Supporting files and references shared within the conversation workflow.'],
+    ['Typing indicator', 'Lightweight feedback while the other participant is composing a reply.'],
+    ['Presence', 'Availability context for marketplace communication.'],
+    ['Booking summary', 'The relevant expert, service and schedule remain visible beside the chat.'],
+    ['Booking-details drawer', 'A compact path to the wider booking record without leaving the conversation.'],
+    ['Date grouping', 'Messages organized into readable chronological groups.'],
+    ['Search', 'Conversation lookup for finding previous service context.'],
+  ]
+
+  const modules = [
+    ['01', 'Expert Discovery', 'Browse and search technology experts by relevant service needs.'],
+    ['02', 'Expert Profiles', 'Understand expertise, available services and the information needed to choose confidently.'],
+    ['03', 'Booking', 'Create a structured request that connects customer, expert and service.'],
+    ['04', 'Scheduling', 'Capture preferred dates and times for remote or on-site delivery.'],
+    ['05', 'Customer Details', 'Collect the contact and service information needed for the booking.'],
+    ['06', 'Chat', 'Keep customer and expert communication attached to the booking context.'],
+    ['07', 'Payments', 'Payment workflow and integration work connected to the service journey.'],
+    ['08', 'Reviews', 'Post-service feedback around the completed customer experience.'],
+    ['09', 'Expert Dashboard', 'Booking, communication, service-status and earnings-related workflows.'],
+    ['10', 'Admin Operations', 'Expert verification and marketplace user, booking and system oversight.'],
+  ]
+
+  const securityGroups = [
+    ['Identity', ['Authentication', 'Account and session handling']],
+    ['Authorization', ['Row Level Security and data access', 'Customer vs Expert vs Admin permissions', 'Admin access control']],
+    ['Payments', ['Server-trusted validation', 'Webhook verification where applicable', 'Idempotency', 'Payment-state integrity']],
+    ['Files & Content', ['Storage permissions', 'Upload validation', 'Safe content rendering and XSS considerations']],
+    ['Application', ['Secrets and environment variables', 'Redirect validation', 'Dependency security', 'Logging and auditability']],
+  ]
+
+  const contributions = [
+    'Designed Book4Tech as a connected web and mobile product experience.',
+    'Developed the product concept and mapped the marketplace journey across customers, experts and administrators.',
+    'Designed the discovery, expert-profile and structured booking experience.',
+    'Built React frontend work and responsive behavior for the marketplace interface.',
+    'Integrated application workflows around the shared Supabase backend.',
+    'Worked with shared marketplace data across users, experts, bookings and service workflows.',
+    'Developed and worked on the mobile application experience as part of the same Book4Tech platform.',
+    'Designed chat UX around the booking context, including presence, typing, attachments and booking details.',
+    'Worked on the payment workflow and integration path without treating client-side state as payment proof.',
+    'Separated customer, expert and admin responsibilities while keeping their shared booking state connected.',
+    'Reviewed security and production concerns including authorization, storage, uploads, redirects and secrets.',
+    'Debugged integration, state-management and responsive UI issues throughout product development.',
+  ]
+
+  const developmentStages = [
+    ['01', 'Marketplace Foundation', 'Expert discovery, profiles and customer, expert and administrator roles.'],
+    ['02', 'Booking Experience', 'Service → schedule → details → review as one structured request flow.'],
+    ['03', 'Communication', 'Booking-connected chat and service coordination work.'],
+    ['04', 'Payments / Operations', 'Payment integration and wider marketplace workflows.'],
+    ['05', 'Mobile Experience', 'Mobile application and responsive service-journey work without assuming a specific framework.'],
+    ['06', 'Production Hardening', 'Security policies, payment verification, testing and deployment considerations.'],
+  ]
+
+  return (
+    <div className="book-case book4tech-case">
+      <section className="book-hero">
+        <div className="book-orbit" aria-hidden="true"><span></span><span></span></div>
+        <div className="case-breadcrumb">
+          <Link to="/projects">Projects</Link><span>/</span><span>Book4Tech</span>
+        </div>
+        <div className="book-hero-grid">
+          <div>
+            <div className="product-status-pill"><span></span>PRODUCT DEVELOPMENT</div>
+            <div className="case-kicker"><span>03</span> TECHNOLOGY SERVICES MARKETPLACE</div>
+            <h1>BOOK<span>4</span><br/>TECH</h1>
+            <p className="book-lead">Book4Tech connects people who need technology help with technology experts who can provide the service.</p>
+            <p className="book-secondary">Customers can discover experts, choose a service, schedule a booking, communicate through contextual chat, follow the service workflow and use the platform’s payment flow.</p>
+            <div className="book-hero-actions">
+              <a className="button primary" href="https://book4tech.vercel.app/" target="_blank" rel="noreferrer">View product <span>↗</span></a>
+              <a className="button ghost" href="#workflow">Explore flow <span>↓</span></a>
+            </div>
+            <div className="chips case-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div>
+          </div>
+          <aside className="case-facts book-facts">
+            <div><span>Project</span><strong>Book4Tech</strong></div>
+            <div><span>Type</span><strong>Technology Services Marketplace</strong></div>
+            <div><span>Role</span><strong>Product Designer / Developer</strong></div>
+            <div><span>Platform</span><strong>Web Application + Mobile Application</strong></div>
+            <div><span>Backend</span><strong>Shared Supabase Backend</strong></div>
+            <div><span>Data</span><strong>Shared PostgreSQL Database</strong></div>
+            <div><span>Web Stack</span><strong>React · Vite · Supabase</strong></div>
+            <div><span>Users</span><strong>Customers · Experts · Administrators</strong></div>
+            <div><span>Status</span><strong>Product Development</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="case-metrics book-metrics">
+        <div><strong>3 Roles</strong><span>Customer · Expert · Admin</span></div>
+        <div><strong>Discovery → Service</strong><span>Connected marketplace journey</span></div>
+        <div><strong>Booking Context</strong><span>Scheduling · chat · payment flow</span></div>
+        <div><strong>One Platform</strong><span>Web + mobile · shared backend</span></div>
+      </section>
+
+      <nav className="case-subnav book-subnav" aria-label="Book4Tech case study sections">
+        <a href="#overview">Overview</a><a href="#workflow">How It Works</a><a href="#interface">Interface</a>
+        <a href="#web-mobile">Web + Mobile</a><a href="#booking">Booking</a><a href="#chat">Chat</a><a href="#architecture">Architecture</a>
+        <a href="#security">Security</a><a href="#contribution">Contribution</a><a href="#b4t-status">Status</a>
+      </nav>
+
+      <section className="section book-problem case-anchor" id="overview">
+        <div className="case-section-title"><Eyebrow>01 / WHAT IS BOOK4TECH?</Eyebrow><h2>Technology help, without the usual searching around.</h2></div>
+        <div className="case-story-copy">
+          <p className="case-big-copy">When someone needs help with a technical problem, finding the right person can involve Facebook posts, phone calls, recommendations and scattered conversations.</p>
+          <p>Book4Tech brings that journey into one structured platform.</p>
+          <div className="simple-service-flow" aria-label="Simple Book4Tech service journey">
+            {['I need tech help', 'Find an expert', 'Book the service', 'Chat & coordinate', 'Get the work done', 'Complete / review'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></div>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="section case-anchor" id="b4t-roles">
+        <div className="section-heading"><div><Eyebrow>02 / WHO USES IT?</Eyebrow><h2>Different responsibilities. One connected service journey.</h2></div></div>
+        <div className="book-role-grid">
+          {userRoles.map(([number, title, need, flow, text]) => <article key={title}><span>{number} / {title}</span><h3>{title}</h3><blockquote>{need}</blockquote><strong>{flow}</strong><p>{text}</p></article>)}
+        </div>
+      </section>
+
+      <section className="section book-workflow-section case-anchor" id="workflow">
+        <div className="section-heading">
+          <div><Eyebrow>03 / END-TO-END JOURNEY</Eyebrow><h2>One service journey, from search to completion.</h2></div>
+        </div>
+        <ol className="marketplace-flow">
+          {marketplaceFlow.map(([step, text], index) => <li key={`${step}-${index}`}><span>{String(index + 1).padStart(2, '0')}</span><div><strong>{step}</strong><p>{text}</p></div></li>)}
+        </ol>
+      </section>
+
+      <section className="section book-interface case-anchor" id="interface">
+        <div className="section-heading">
+          <div><Eyebrow>04 / PRODUCT INTERFACE</Eyebrow><h2>The marketplace in practice.</h2><p className="gallery-intro">Real Book4Tech web and mobile application screens selected from the supplied project captures.</p></div>
+          <span className="interface-badge book-interface-badge">REAL APPLICATION UI</span>
+        </div>
+        <Book4TechGallery />
+      </section>
+
+      <section className="section web-mobile-section case-anchor" id="web-mobile">
+        <div className="section-heading"><div><Eyebrow>05 / WEB + MOBILE</Eyebrow><h2>One platform. Two experiences.</h2><p className="gallery-intro">Book4Tech was designed as one connected platform across web and mobile. The web application and mobile application use the same Supabase backend and shared PostgreSQL database, so core marketplace data belongs to one Book4Tech system rather than two separate applications.</p></div></div>
+        <div className="experience-comparison">
+          <article className="web-experience">
+            <div className="experience-copy"><span>WEB APPLICATION</span><h3>Explore the wider marketplace.</h3><ul><li>Expert discovery</li><li>Profiles</li><li>Booking</li><li>Dashboards</li><li>Marketplace management</li></ul></div>
+            <div className="web-device-frame"><div><span></span><span></span><span></span><small>book4tech.vercel.app</small></div><img src="/projects/book4tech/web-home.png" alt="Real Book4Tech web homepage" loading="lazy" /></div>
+          </article>
+          <article className="mobile-experience">
+            <div className="experience-copy"><span>MOBILE APPLICATION</span><h3>Keep the service journey close.</h3><ul><li>Mobile expert discovery</li><li>Booking access</li><li>Customer interaction</li><li>Service and booking access</li><li>Mobile marketplace experience</li></ul></div>
+            <div className="phone-device-frame"><div></div><img src="/projects/book4tech/mobile-welcome.jpg" alt="Real Book4Tech mobile welcome screen" loading="lazy" /></div>
+          </article>
+        </div>
+        <aside className="shared-platform-card">
+          <div><span>SHARED PLATFORM BACKEND</span><h3>One Book4Tech data layer</h3><p>Both application experiences connect to the same platform backend and database.</p></div>
+          <ul><li>Supabase</li><li>Shared PostgreSQL Database</li><li>Shared Authentication / User Data</li><li>Shared Bookings</li><li>Shared Expert &amp; Service Data</li><li>Shared Marketplace Records</li></ul>
+        </aside>
+      </section>
+
+      <section className="section booking-section case-anchor" id="booking">
+        <div className="case-section-title"><Eyebrow>06 / BOOKING EXPERIENCE</Eyebrow><h2>Turn a conversation into a structured service request.</h2><p className="section-copy">A product-flow visualization using generic example information—not a real application screenshot.</p></div>
+        <div className="booking-concept">
+          <div className="booking-concept-bar"><span>PRODUCT FLOW VISUALIZATION</span><small>BOOK4TECH / NEW BOOKING</small></div>
+          <div className="booking-stepper">{['Service', 'Schedule', 'Your details', 'Review'].map((step, index) => <div className={index === 0 ? 'active' : ''} key={step}><span>0{index + 1}</span><strong>{step}</strong></div>)}</div>
+          <div className="booking-panel">
+            <div className="booking-fields">
+              <label><span>SELECTED EXPERT</span><strong>Technology expert</strong></label>
+              <label><span>SERVICE CATEGORY</span><strong>Device support</strong></label>
+              <label><span>PREFERRED DATE</span><strong>Select a date</strong></label>
+              <label><span>PREFERRED TIME</span><strong>Select a time</strong></label>
+              <label><span>CONTACT INFORMATION</span><strong>Add customer details</strong></label>
+              <label><span>BUDGET RANGE</span><strong>Select a range</strong></label>
+            </div>
+            <aside><span>SERVICE DELIVERY</span><div><strong>Remote</strong><strong>On-site</strong></div><p>Review the expert, service, schedule, delivery method and contact details before creating the booking.</p><button type="button" disabled>Continue to schedule</button></aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="section book-chat-section case-anchor" id="chat">
+        <div className="case-section-title"><Eyebrow>07 / COMMUNICATION</Eyebrow><h2>The conversation stays connected to the booking.</h2><p className="section-copy">Book4Tech chat was designed around a real service context rather than being a standalone messenger. Privacy-sensitive supplied chat captures were intentionally excluded from the public gallery.</p></div>
+        <div className="chat-feature-grid">{chatFeatures.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+      </section>
+
+      <section className="section case-anchor" id="architecture">
+        <div className="case-section-title"><Eyebrow>08 / ARCHITECTURE</Eyebrow><h2>One data layer connecting marketplace workflows.</h2></div>
+        <div className="book-platform-architecture">
+          <div className="platform-root"><span>PRODUCT</span><strong>Book4Tech</strong></div>
+          <b aria-hidden="true">↓</b>
+          <div className="client-pair">
+            <article><span>WEB APPLICATION</span><strong>React + Vite</strong><small>Browser marketplace experience</small></article>
+            <article><span>MOBILE APPLICATION</span><strong>Mobile Client</strong><small>Framework not stated</small></article>
+          </div>
+          <b aria-hidden="true">↓</b>
+          <div className="supabase-cluster shared-supabase"><span>SHARED BACKEND / SHARED DATABASE</span><h3>Same Supabase Backend</h3><div><strong>Auth</strong><strong>Postgres<small>Shared database</small></strong><strong>Storage</strong></div></div>
+          <b aria-hidden="true">↓</b>
+          <article className="book-domain-node"><span>SHARED MARKETPLACE DATA</span><div className="shared-data-grid">{['Users', 'Experts', 'Services', 'Bookings', 'Messages', 'Reviews'].map(item => <strong key={item}>{item}</strong>)}</div></article>
+        </div>
+        <p className="architecture-explanation">Instead of maintaining separate databases for the website and mobile application, Book4Tech uses a shared backend architecture. Both client experiences interact with the same platform data layer, helping keep marketplace records consistent across the product.</p>
+        <div className="payment-trust-flow"><span>PAYMENT WORKFLOW / VALIDATION DIRECTION</span><div><strong>Customer</strong><b>→</b><strong>Booking</strong><b>→</b><strong>Payment Flow</strong><b>→</b><strong>Validation</strong><b>→</b><strong>Booking / Payment State</strong></div><p>The production direction relies on trusted validation rather than client-controlled payment success. This diagram describes the intended validation boundary, not a claim that every hardening step is complete.</p></div>
+      </section>
+
+      <section className="section">
+        <div className="section-heading"><div><Eyebrow>09 / CORE MODULES</Eyebrow><h2>The marketplace beyond a search page.</h2></div></div>
+        <div className="book-module-grid">{modules.map(([number, title, text]) => <article key={title}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section book-security case-anchor" id="security">
+        <div className="case-section-title"><Eyebrow>10 / SECURITY & PRODUCTION</Eyebrow><h2>A marketplace has to protect more than the interface.</h2><p className="section-copy">Because Book4Tech handles different user roles, bookings, messages, files and payment-related workflows, production security depends on authorization and trusted backend controls—not just frontend validation.</p><span className="security-label">SECURITY / PRODUCTION CONSIDERATIONS</span></div>
+        <div className="security-groups">{securityGroups.map(([title, items], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></div></article>)}</div>
+      </section>
+
+      <section className="section contribution-section case-anchor" id="contribution">
+        <div className="case-section-title"><Eyebrow>11 / MY CONTRIBUTION</Eyebrow><h2>From marketplace idea to connected product workflows.</h2></div>
+        <div className="contribution-layout"><div className="contribution-quote book-role"><span>ROLE ACROSS THE PRODUCT</span><strong>Product Design<br/>Frontend<br/>Full-stack Development</strong></div><div className="contribution-list">{contributions.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>)}</div></div>
+      </section>
+
+      <section className="section challenge-section">
+        <Eyebrow>12 / ENGINEERING CHALLENGES</Eyebrow>
+        <div className="challenge-grid book-challenges">
+          <article><span>01 / MULTI-ROLE STATE</span><h3>Separate but connected</h3><p>Customer, expert and admin workflows need clear boundaries while operating on related marketplace records.</p></article>
+          <article><span>02 / BOOKING CONTEXT</span><h3>Synchronizing the journey</h3><p>Scheduling, expert, service, customer and payment state have to remain synchronized.</p></article>
+          <article><span>03 / CONTEXTUAL CHAT</span><h3>Beyond standard CRUD</h3><p>Conversation state, booking details, typing, presence and attachments add coordination and lifecycle complexity.</p></article>
+          <article><span>04 / PAYMENT + AUTHORIZATION</span><h3>Server-trusted decisions</h3><p>Payment-related state and marketplace permissions require trusted validation and careful access control.</p></article>
+        </div>
+      </section>
+
+      <section className="section book-status case-anchor" id="b4t-status">
+        <div className="case-section-title"><Eyebrow>PRODUCT DEVELOPMENT</Eyebrow><h2>Substantial product work, with continued hardening ahead.</h2><p className="section-copy">The supplied application screens show working marketplace flows. Payment verification, policies, testing and production hardening remain areas that should be described carefully rather than treated as automatically complete.</p></div>
+        <div className="book-development-grid">{developmentStages.map(([number, title, text]) => <article key={title}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="case-outcome book-outcome">
+        <Eyebrow>13 / OUTCOME</Eyebrow><h2>A service marketplace built around the whole job—not just finding an expert.</h2>
+        <p>Book4Tech brings discovery, booking, communication and service-management workflows into one product concept. Building it required thinking across marketplace UX, multiple user roles, communication, data permissions, payment integration and responsive web/mobile experiences.</p>
+        <div className="outcome-actions"><a className="button primary" href="https://book4tech.vercel.app/" target="_blank" rel="noreferrer">View Book4Tech <span>↗</span></a><Link className="button ghost" to="/projects/marketfusion">Next project <span>→</span></Link><Link className="button ghost" to="/projects">All projects</Link></div>
+      </section>
+    </div>
+  )
+}
+
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find(p => p.slug === slug)
@@ -1026,6 +1380,7 @@ function ProjectDetail() {
 
   if (slug === 'vision-guard') return <VisionGuardCaseStudy project={project} />
   if (slug === 'shenvix-pos') return <ShenvixCaseStudy project={project} />
+  if (slug === 'book4tech') return <Book4TechCaseStudy project={project} />
 
   return (
     <>

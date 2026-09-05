@@ -43,15 +43,15 @@ export const projects = [
     slug: 'book4tech',
     number: '03',
     title: 'Book4Tech',
-    category: 'Service Marketplace',
+    category: 'Technology Services Marketplace',
     summary:
-      'A technician marketplace connecting customers with technology experts through booking, messaging and service management workflows.',
-    stack: ['React', 'Vite', 'Supabase', 'Payments'],
+      'A technology-services marketplace connecting customers with experts through discovery, booking, chat, payment and service-management workflows across connected web and mobile applications using a shared Supabase backend.',
+    stack: ['React', 'Vite', 'Supabase', 'Postgres', 'Marketplace UX'],
     highlights: [
-      'Customer and expert flows',
-      'Booking and scheduling',
-      'Chat and service management',
-      'Admin and payment workflows',
+      'Connected web + mobile marketplace',
+      'Shared Supabase / PostgreSQL data layer',
+      'Customer, expert and admin workflows',
+      'Booking, chat and payment integration work',
     ],
   },
   {
