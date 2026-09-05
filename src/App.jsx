@@ -616,7 +616,7 @@ function ShenvixCaseStudy({ project }) {
 
       <section className="case-outcome">
         <Eyebrow>08 / OUTCOME</Eyebrow>
-        <h2>More than a student CRUD project.</h2>
+        <h2>A business system shaped by real operations.</h2>
         <p>
           Shenvix POS became a real business system built around Sudeepa Hardware's operations: hardware retail and
           wholesale sales, inventory, purchasing, supplier management, warranty, credit, rentals, manufacturing,
@@ -631,11 +631,278 @@ function ShenvixCaseStudy({ project }) {
   )
 }
 
+
+function VisionGuardCaseStudy({ project }) {
+  const monitoredThreats = [
+    ['01', 'Brute-force attempts', 'Repeated authentication attempts against CCTV, DVR/NVR or related management interfaces.'],
+    ['02', 'Unauthorized access', 'Unexpected logins, access attempts or account activity outside the expected operator flow.'],
+    ['03', 'Port scanning', 'Discovery-style probing that can indicate an attacker is mapping exposed services.'],
+    ['04', 'RTSP / stream abuse', 'Suspicious access patterns around camera-stream services and unauthorized viewing attempts.'],
+    ['05', 'Traffic spikes & DoS', 'Abnormal network-volume changes that may indicate disruption, flooding or denial-of-service behavior.'],
+    ['06', 'Botnet-like behavior', 'Unusual repeated connections or network activity inconsistent with normal CCTV operation.'],
+    ['07', 'Default / weak credentials', 'Identifying the risk created by unchanged or insecure camera and recorder credentials.'],
+    ['08', 'Firmware / config changes', 'Unexpected configuration or device-state changes that may affect security or recording.'],
+    ['09', 'Unusual login times', 'Access activity occurring outside the expected operating pattern.'],
+    ['10', 'Data exfiltration signals', 'Unexpected outbound or transfer behavior that may indicate footage or data leaving the trusted environment.'],
+    ['11', 'Camera tampering', 'Covering, moving, damaging, powering off or disconnecting a camera or its cable.'],
+    ['12', 'Recorder / storage tampering', 'DVR theft, HDD removal, recording deletion or misuse of recorder credentials.'],
+  ]
+
+  const features = [
+    ['Network monitoring', 'Observe CCTV-related network activity and surface suspicious patterns around devices and services.'],
+    ['Device discovery', 'Identify cameras and related devices present on the monitored LAN.'],
+    ['Access monitoring', 'Track suspicious login behavior, brute-force attempts and unauthorized-access indicators.'],
+    ['Physical tamper awareness', 'Model non-network threats such as camera movement, cable cuts, power loss and recorder/storage interference.'],
+    ['Security dashboard', 'Present devices, alerts and security events in one interface for faster operator awareness.'],
+    ['Alert delivery', 'Send a high-priority notification through a separate SIM-based notification unit when an event requires attention.'],
+  ]
+
+  const contributions = [
+    'Helped define the system around both cyber threats and physical CCTV tampering rather than treating camera security as a network-only problem.',
+    'Worked on the threat model covering unauthorized access, brute force, port scanning, RTSP misuse, traffic anomalies and physical interference.',
+    'Helped shape the isolated-LAN architecture so CCTV monitoring can continue without depending on normal Internet connectivity.',
+    'Contributed to the SIM-based notification-unit concept, designed to activate briefly to send an alert and then power down again.',
+    'Worked with the React frontend and Node.js / Express backend architecture used for monitoring, alerting and device data flows.',
+    'Contributed to database and integrity ideas for protecting or validating recorded evidence, including hash-based integrity checks.',
+    'Prepared system architecture, workflow and presentation material explaining how the monitoring and alert flow works.',
+    'Tested and documented security scenarios in a controlled academic environment as part of the project work.',
+  ]
+
+  return (
+    <div className="vision-case">
+      <section className="vision-hero">
+        <div className="case-breadcrumb">
+          <Link to="/projects">Projects</Link><span>/</span><span>Vision Guard</span>
+        </div>
+
+        <div className="vision-hero-grid">
+          <div>
+            <div className="case-kicker"><span>01</span> CYBERSECURITY / SMART SURVEILLANCE</div>
+            <h1>VISION<br/><span>GUARD</span></h1>
+            <p className="vision-lead">
+              A smart CCTV security-monitoring project designed to detect unauthorized access, network threats and
+              physical tampering around surveillance systems instead of watching only the video feed.
+            </p>
+            <div className="chips case-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div>
+          </div>
+
+          <aside className="case-facts">
+            <div><span>Project</span><strong>Vision Guard</strong></div>
+            <div><span>Type</span><strong>Academic Cybersecurity / Smart CCTV Project</strong></div>
+            <div><span>Focus</span><strong>Unauthorized Access · Network Threats · Physical Tampering</strong></div>
+            <div><span>Environment</span><strong>Isolated CCTV LAN + Independent Alert Path</strong></div>
+            <div><span>Application Stack</span><strong>React · Node.js · Express · MySQL</strong></div>
+            <div><span>Portfolio Note</span><strong>Group project — this page focuses on the areas I contributed to</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="case-metrics vision-metrics">
+        <div><strong>Cyber + Physical</strong><span>Combined threat model</span></div>
+        <div><strong>12</strong><span>Threat categories represented</span></div>
+        <div><strong>Isolated LAN</strong><span>Local monitoring design</span></div>
+        <div><strong>SIM Alert Path</strong><span>Independent notification concept</span></div>
+      </section>
+
+      <section className="section vision-story">
+        <div className="case-section-title">
+          <Eyebrow>01 / THE PROBLEM</Eyebrow>
+          <h2>A CCTV system can record an incident and still miss the attack on itself.</h2>
+        </div>
+        <div className="case-story-copy">
+          <p className="case-big-copy">
+            Cameras and recorders are security devices, but they are also networked computers. If an attacker compromises
+            the CCTV infrastructure, disables a camera, steals a recorder or removes storage, the surveillance system itself
+            becomes part of the incident.
+          </p>
+          <p>
+            Vision Guard was designed around that gap: monitor the security of the surveillance environment itself. The
+            project combines network and access monitoring with physical-tamper scenarios so operators can see when the
+            CCTV system is being targeted, not only what the camera is recording.
+          </p>
+        </div>
+      </section>
+
+      <section className="section vision-flow-section">
+        <div className="section-heading">
+          <div>
+            <Eyebrow>02 / SECURITY FLOW</Eyebrow>
+            <h2>Detect locally. Escalate independently.</h2>
+          </div>
+          <p className="screenshot-note">Architecture visualization based on the project design.</p>
+        </div>
+
+        <div className="vision-flow">
+          <div className="vision-flow-node primary">
+            <span>01</span>
+            <strong>CCTV Devices</strong>
+            <small>Cameras · DVR/NVR · recorder storage</small>
+          </div>
+          <div className="vision-flow-arrow">→</div>
+          <div className="vision-flow-node">
+            <span>02</span>
+            <strong>Isolated LAN</strong>
+            <small>Router / local surveillance network</small>
+          </div>
+          <div className="vision-flow-arrow">→</div>
+          <div className="vision-flow-node accent">
+            <span>03</span>
+            <strong>Monitoring Engine</strong>
+            <small>Device state · access · traffic · alerts</small>
+          </div>
+          <div className="vision-flow-arrow">→</div>
+          <div className="vision-flow-stack">
+            <div className="vision-flow-node">
+              <span>04A</span>
+              <strong>Dashboard</strong>
+              <small>React operator interface</small>
+            </div>
+            <div className="vision-flow-node alert">
+              <span>04B</span>
+              <strong>SIM Alert Unit</strong>
+              <small>Independent high-priority notification path</small>
+            </div>
+          </div>
+        </div>
+
+        <div className="vision-flow-notes">
+          <article><span>LOCAL FIRST</span><p>Core monitoring is designed around the CCTV LAN rather than assuming normal Internet connectivity is always available.</p></article>
+          <article><span>SEPARATE ALERT PATH</span><p>The notification-unit concept gives critical alerts a path that is separate from the normal CCTV network.</p></article>
+          <article><span>EVIDENCE INTEGRITY</span><p>The project also explored hash-based integrity and distributed storage concepts for validating recorded evidence.</p></article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-heading">
+          <div><Eyebrow>03 / MONITORED THREATS</Eyebrow><h2>The attack surface is bigger than the camera lens.</h2></div>
+        </div>
+        <div className="vision-threat-grid">
+          {monitoredThreats.map(([number, title, text]) => (
+            <article key={title}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section vision-capabilities">
+        <div className="case-section-title">
+          <Eyebrow>04 / CAPABILITIES</Eyebrow>
+          <h2>One monitoring layer across the surveillance environment.</h2>
+        </div>
+        <div className="vision-capability-grid">
+          {features.map(([title, text], index) => (
+            <article key={title}>
+              <span>0{index + 1}</span>
+              <div><h3>{title}</h3><p>{text}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section architecture-section">
+        <div className="case-section-title">
+          <Eyebrow>05 / APPLICATION ARCHITECTURE</Eyebrow>
+          <h2>A dashboard on top of monitoring and alert services.</h2>
+        </div>
+
+        <div className="architecture-map vision-architecture-map">
+          <div className="arch-column">
+            <span className="arch-label">INTERFACE</span>
+            <div className="arch-node primary"><small>01</small><strong>React Dashboard</strong><span>Devices · alerts · security state</span></div>
+          </div>
+          <div className="arch-arrow">→</div>
+          <div className="arch-column">
+            <span className="arch-label">API / LOGIC</span>
+            <div className="arch-node"><small>02</small><strong>Node.js + Express</strong><span>API · monitoring logic · event handling</span></div>
+            <div className="arch-node"><small>03</small><strong>Alert Service</strong><span>Event classification · notification flow</span></div>
+          </div>
+          <div className="arch-arrow">→</div>
+          <div className="arch-column">
+            <span className="arch-label">DATA</span>
+            <div className="arch-node"><small>04</small><strong>MySQL</strong><span>Devices · events · application data</span></div>
+            <div className="arch-node"><small>05</small><strong>Integrity Layer</strong><span>Hash / evidence-integrity concepts</span></div>
+          </div>
+          <div className="arch-arrow">→</div>
+          <div className="arch-column">
+            <span className="arch-label">PHYSICAL SYSTEM</span>
+            <div className="arch-node accent"><small>06</small><strong>CCTV LAN</strong><span>Camera · router · recorder environment</span></div>
+            <div className="arch-node"><small>07</small><strong>Notification Unit</strong><span>SIM-based alert concept</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section vision-evidence">
+        <div className="section-heading">
+          <div>
+            <Eyebrow>06 / PROJECT EVIDENCE</Eyebrow>
+            <h2>Real screenshots will live here.</h2>
+            <p className="gallery-intro">
+              The portfolio repo does not contain Vision Guard UI captures yet, so this section is intentionally honest
+              rather than using mock product screenshots.
+            </p>
+          </div>
+          <span className="interface-badge pending">SCREENSHOTS TO ADD</span>
+        </div>
+
+        <div className="vision-evidence-grid">
+          <article><span>01</span><strong>Monitoring Dashboard</strong><p>Add the real device / threat overview screen.</p></article>
+          <article><span>02</span><strong>Alert / Event View</strong><p>Add a real detected-event or alert-management screen.</p></article>
+          <article><span>03</span><strong>Device Discovery</strong><p>Add a real camera / device-discovery or status view.</p></article>
+        </div>
+      </section>
+
+      <section className="section contribution-section">
+        <div className="case-section-title">
+          <Eyebrow>07 / MY CONTRIBUTION</Eyebrow>
+          <h2>My work focused on the security model, architecture and system behavior.</h2>
+        </div>
+        <div className="contribution-layout">
+          <div className="contribution-quote vision-role">
+            <span>PROJECT ROLE</span>
+            <strong>Cybersecurity<br/>Architecture<br/>Development</strong>
+          </div>
+          <div className="contribution-list">
+            {contributions.map((item, index) => <div key={item}><span>0{index + 1}</span><p>{item}</p></div>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="section challenge-section">
+        <Eyebrow>08 / ENGINEERING CHALLENGES</Eyebrow>
+        <div className="challenge-grid">
+          <article><span>01</span><h3>Cyber + physical threats</h3><p>The design had to model network attacks and physical interference as one surveillance-security problem.</p></article>
+          <article><span>02</span><h3>Offline resilience</h3><p>An isolated CCTV network changes how monitoring, storage and alerting services can communicate.</p></article>
+          <article><span>03</span><h3>Independent notification</h3><p>Critical alerts need a path that still makes sense when normal network connectivity is unavailable or compromised.</p></article>
+          <article><span>04</span><h3>Evidence trust</h3><p>Recorded footage is only useful as evidence if unauthorized deletion, replacement or modification can be detected.</p></article>
+        </div>
+      </section>
+
+      <section className="case-outcome">
+        <Eyebrow>09 / OUTCOME</Eyebrow>
+        <h2>Security monitoring for the security system itself.</h2>
+        <p>
+          Vision Guard reframed CCTV from a passive recording tool into a monitored cyber-physical environment. The
+          project brought together threat modeling, network monitoring, device state, physical tamper scenarios,
+          application development and alert design in one cybersecurity-focused surveillance concept.
+        </p>
+        <div className="outcome-actions">
+          <Link className="button primary" to="/projects/shenvix-pos">Next project <span>→</span></Link>
+          <Link className="button ghost" to="/projects">All projects</Link>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find(p => p.slug === slug)
   if (!project) return <PageHero eyebrow="404" title="Project not found." text="That case study does not exist yet." />
 
+  if (slug === 'vision-guard') return <VisionGuardCaseStudy project={project} />
   if (slug === 'shenvix-pos') return <ShenvixCaseStudy project={project} />
 
   return (
