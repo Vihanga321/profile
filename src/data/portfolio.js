@@ -58,15 +58,30 @@ export const projects = [
     slug: 'marketfusion',
     number: '04',
     title: 'MarketFusion',
-    category: 'Market Intelligence',
+    category: 'AI / Market Intelligence',
     summary:
-      'A multi-engine financial market analysis platform focused on combining structured analysis, risk controls and live dashboards.',
-    stack: ['Python', 'Data Analysis', 'APIs', 'Dashboards'],
+      'A private XAUUSD market-intelligence system combining multiple analysis engines, my proprietary AI prediction model and risk-aware decision-support workflows.',
+    stack: ['Python', 'Data Analysis', 'APIs', 'AI/ML', 'Dashboard'],
     highlights: [
-      'Multi-engine analysis',
-      'XAUUSD-focused workflows',
-      'Risk and signal framework',
-      'Live monitoring dashboard',
+      'Proprietary XAUUSD prediction model',
+      'Multi-engine market analysis',
+      'Signal fusion and confidence context',
+      'Risk-aware decision support',
+    ],
+  },
+  {
+    slug: 'tharanga-ref',
+    number: '05',
+    title: 'Tharanga Steel REF',
+    category: 'Client Business Operations',
+    summary:
+      'A sales, order, warehouse and delivery operations system designed around the distribution workflow of Tharanga Steel Pvt Ltd.',
+    stack: ['Supabase', 'PostgreSQL', 'Responsive Web UI'],
+    highlights: [
+      'Sales representative and route workflows',
+      'Shop-aware product and pricing management',
+      'Order-to-warehouse operational flow',
+      'Lorry assignment and delivery workflows',
     ],
   },
 ]

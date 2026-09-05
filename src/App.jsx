@@ -137,7 +137,7 @@ function Home() {
         </div>
 
         <div className="project-grid">
-          {projects.map(project => <ProjectCard project={project} key={project.slug} />)}
+          {projects.slice(0, 4).map(project => <ProjectCard project={project} key={project.slug} />)}
         </div>
       </section>
 
@@ -1373,6 +1373,535 @@ function Book4TechCaseStudy({ project }) {
   )
 }
 
+function MarketFusionInterface() {
+  return (
+    <div className="mf-interface-withheld">
+      <div className="mf-withheld-header"><span>MARKETFUSION / SYSTEM INTERFACE</span><strong>CAPTURE WITHHELD</strong></div>
+      <div className="mf-withheld-body">
+        <div className="mf-withheld-message">
+          <span aria-hidden="true">◇</span>
+          <div><small>PRIVATE PROJECT / PUBLIC-SAFE SUMMARY</small><h3>Original interface captures are intentionally not published.</h3><p>The supplied screenshots include local environment information and detailed private research output. They were reviewed but excluded without cropping, blurring or modifying the originals.</p></div>
+        </div>
+        <div className="mf-interface-summary">{['XAUUSD market view', 'Analysis-engine status', 'Confidence context', 'Risk-gated advisory', 'Validation workspace', 'System diagnostics'].map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></div>)}</div>
+      </div>
+    </div>
+  )
+}
+
+function MarketFusionCaseStudy({ project }) {
+  const analysisEngines = [
+    ['01', 'Technical Analysis', ['Trend and indicator context', 'Moving-average and directional information']],
+    ['02', 'Price Action', ['Candle behaviour', 'Price reaction context']],
+    ['03', 'Market Structure', ['Swing structure', 'Direction, break and continuation context']],
+    ['04', 'Liquidity', ['Liquidity conditions', 'Reaction context around market levels']],
+    ['05', 'Volatility', ['Changing market speed', 'Rolling volatility context']],
+    ['06', 'Session / Time', ['Asian, London and New York context', 'Time-aware market windows']],
+    ['07', 'Market Regime', ['Trending or ranging context', 'Changing market-state classification']],
+    ['08', 'Patterns & Levels', ['Chart-pattern observations', 'Support and resistance context']],
+    ['09', 'AI Prediction', ['Proprietary model output', 'Confidence and probability context']],
+  ]
+
+  const riskChecks = [
+    ['Volatility', 'Is the market unusually unstable?'],
+    ['Signal Agreement', 'Do the independent analysis perspectives agree?'],
+    ['Invalidation', 'What conditions would break the current setup?'],
+    ['Timing', 'Is the current session and market window appropriate?'],
+    ['Confidence', 'How strong is the combined evidence?'],
+    ['No-Trade State', 'When should the system avoid an actionable setup?'],
+  ]
+
+  const privacyControls = [
+    ['Model IP', 'Model internals and proprietary prediction logic remain private.'],
+    ['Credentials', 'API keys and service credentials stay outside the public portfolio.'],
+    ['Financial Data', 'Account details, balances and transaction information are not published.'],
+    ['Data Sources', 'Private data-source configuration is not exposed.'],
+    ['Environment', 'Secrets are managed outside frontend and public code.'],
+    ['Public Portfolio', 'Only architecture, safe screenshots and non-sensitive functionality are shown.'],
+  ]
+
+  const contributions = [
+    'Defined the MarketFusion product concept and XAUUSD research focus.',
+    'Designed the multi-engine analysis architecture.',
+    'Built and integrated market-analysis workflows.',
+    'Developed my own private AI prediction model.',
+    'Designed signal-fusion logic without exposing proprietary weighting.',
+    'Built the prediction-output workflow.',
+    'Designed risk-aware decision-support concepts.',
+    'Worked on XAUUSD-focused analysis.',
+    'Built and iterated the dashboard experience.',
+    'Integrated market data sources where applicable.',
+    'Designed the continuous-analysis architecture.',
+    'Tested and iterated prediction behaviour as part of private research.',
+  ]
+
+  const validationAreas = [
+    'Historical testing',
+    'Walk-forward testing',
+    'Out-of-sample validation',
+    'False-signal analysis',
+    'Changing volatility conditions',
+    'Prediction calibration',
+    'Drawdown and risk review',
+    'Live paper-testing where applicable',
+  ]
+
+  const projectStages = [
+    ['01', 'Data Pipeline', 'Implemented'],
+    ['02', 'Analysis Engines', 'Implemented'],
+    ['03', 'AI Model', 'Testing'],
+    ['04', 'Signal Fusion', 'Testing'],
+    ['05', 'Risk Layer', 'Testing'],
+    ['06', 'Dashboard', 'Implemented'],
+    ['07', 'Validation', 'Testing'],
+  ]
+
+  return (
+    <div className="marketfusion-case">
+      <section className="mf-hero">
+        <div className="mf-grid-background" aria-hidden="true"></div>
+        <svg className="mf-market-line" viewBox="0 0 760 260" aria-hidden="true"><path d="M4 214 L74 196 L128 202 L188 150 L248 168 L306 110 L365 132 L426 72 L478 94 L548 42 L615 66 L688 24 L756 38"/><g><circle cx="188" cy="150" r="4"/><circle cx="365" cy="132" r="4"/><circle cx="548" cy="42" r="4"/><circle cx="688" cy="24" r="4"/></g></svg>
+        <div className="case-breadcrumb"><Link to="/projects">Projects</Link><span>/</span><span>MarketFusion</span></div>
+        <div className="mf-hero-grid">
+          <div className="mf-hero-copy">
+            <div className="mf-status"><span></span>PRIVATE R&amp;D</div>
+            <div className="case-kicker"><span>04</span> AI MARKET INTELLIGENCE</div>
+            <h1>MARKET<br/><span>FUSION</span></h1>
+            <p className="mf-lead">An AI-assisted market intelligence system I built for analyzing and predicting XAUUSD market conditions.</p>
+            <p className="mf-supporting">MarketFusion combines multiple forms of market analysis with my own private AI prediction model to turn live market information into structured signals, confidence context and risk-aware decision support.</p>
+            <div className="chips mf-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div>
+          </div>
+          <aside className="case-facts mf-facts">
+            <div><span>Project</span><strong>MarketFusion</strong></div>
+            <div><span>Type</span><strong>AI Market Intelligence System</strong></div>
+            <div><span>Market</span><strong>XAUUSD / Gold</strong></div>
+            <div><span>Role</span><strong>Creator / Developer</strong></div>
+            <div><span>Status</span><strong>Private Research &amp; Development</strong></div>
+            <div><span>Model</span><strong>Proprietary AI Prediction Model</strong></div>
+            <div><span>Focus</span><strong>Analysis · Prediction · Risk · Decision Support</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="case-metrics mf-metrics">
+        <div><strong>XAUUSD</strong><span>Focused market research</span></div>
+        <div><strong>Multi-Engine</strong><span>Independent analysis perspectives</span></div>
+        <div><strong>Risk-Aware</strong><span>Context before actionability</span></div>
+        <div><strong>Private R&amp;D</strong><span>Decision support, not a promise</span></div>
+      </section>
+
+      <nav className="case-subnav mf-subnav" aria-label="MarketFusion case study sections">
+        <a href="#mf-overview">Overview</a><a href="#mf-pipeline">Pipeline</a><a href="#mf-model">AI Model</a><a href="#mf-signals">Signals</a><a href="#mf-risk">Risk</a><a href="#mf-interface">Interface</a><a href="#mf-architecture">Architecture</a><a href="#mf-privacy">Privacy</a><a href="#mf-contribution">Contribution</a><a href="#mf-status">Status</a>
+      </nav>
+
+      <section className="section mf-overview case-anchor" id="mf-overview">
+        <div className="case-section-title"><Eyebrow>01 / THE IDEA</Eyebrow><h2>Markets produce too much information for one chart to tell the whole story.</h2></div>
+        <div className="mf-overview-layout">
+          <div><p className="case-big-copy">A trader can look at trend, price action, volatility, market structure and other signals individually.</p><p>The problem is that those signals can conflict. MarketFusion explores whether multiple analysis engines can be combined into one structured decision-support system.</p></div>
+          <div className="mf-simple-flow" aria-label="MarketFusion high-level process">{['Market Data', 'Multiple Analysis Engines', 'AI / Signal Fusion', 'Confidence Context', 'Risk Filter', 'Final Market View'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong>{index < 5 && <b aria-hidden="true">↓</b>}</div>)}</div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-heading"><div><Eyebrow>02 / ANALYSIS ENGINES</Eyebrow><h2>Different perspectives on the same market.</h2><p className="gallery-intro">Public-safe functional categories are shown here; exact formulas, thresholds and engine weighting remain private.</p></div></div>
+        <div className="mf-engine-grid">{analysisEngines.map(([number, title, items]) => <article key={title}><span>{number}</span><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div>
+      </section>
+
+      <section className="section case-anchor mf-pipeline-section" id="mf-pipeline">
+        <div className="case-section-title"><Eyebrow>03 / SYSTEM PIPELINE</Eyebrow><h2>From raw market data to one structured view.</h2></div>
+        <div className="mf-pipeline">
+          <div className="mf-pipeline-node primary"><span>INPUT</span><strong>XAUUSD Market Data</strong></div><b aria-hidden="true">↓</b>
+          <div className="mf-pipeline-node"><span>PROCESSING</span><strong>Data Pipeline</strong></div><b aria-hidden="true">↓</b>
+          <div className="mf-engine-bank">{['Technical', 'Structure', 'Volatility', 'Price Action', 'Liquidity', 'Time / Session'].map((engine, index) => <article key={engine}><span>ENGINE {String.fromCharCode(65 + index)}</span><strong>{engine}</strong></article>)}</div><b aria-hidden="true">↓</b>
+          <div className="mf-pipeline-node fusion"><span>COMBINATION</span><strong>Signal Fusion</strong></div><b aria-hidden="true">↓</b>
+          <div className="mf-model-blackbox"><span>PROPRIETARY AI MODEL</span><strong>PRIVATE MODEL</strong><p>Internal implementation not publicly disclosed.</p></div><b aria-hidden="true">↓</b>
+          <div className="mf-pipeline-node"><span>CONSTRAINT</span><strong>Risk Filter</strong></div><b aria-hidden="true">↓</b>
+          <div className="mf-pipeline-node"><span>OUTPUT</span><strong>Market Prediction</strong></div><b aria-hidden="true">↓</b>
+          <div className="mf-pipeline-node primary"><span>INTERFACE</span><strong>Dashboard</strong></div>
+        </div>
+      </section>
+
+      <section className="section case-anchor mf-model-section" id="mf-model">
+        <div className="case-section-title"><Eyebrow>04 / PROPRIETARY MODEL</Eyebrow><h2>My own prediction layer sits at the center of the system.</h2><p className="section-copy">I developed a private AI prediction component for MarketFusion that takes structured market information and contributes to the final XAUUSD market assessment.</p></div>
+        <div className="mf-model-layout">
+          <div className="mf-model-facts">{[['Input', 'Structured market features'], ['Process', 'Private AI prediction layer'], ['Output', 'Market-direction and prediction context'], ['Integration', 'Combined with analysis engines and risk logic']].map(([title, text], index) => <article key={title}><span>0{index + 1} / {title}</span><strong>{text}</strong></article>)}</div>
+          <div className="mf-protected-model"><span>PROPRIETARY AI MODEL</span><strong>PRIVATE IMPLEMENTATION</strong><p>Model internals intentionally<br/>not disclosed publicly.</p><small>Protected intellectual property</small></div>
+        </div>
+      </section>
+
+      <section className="section case-anchor" id="mf-signals">
+        <div className="case-section-title"><Eyebrow>05 / SIGNAL FUSION</Eyebrow><h2>One engine should not decide the trade.</h2><p className="section-copy">MarketFusion is designed around combining independent analysis perspectives rather than trusting one indicator. The public view shows the participating perspectives without revealing numerical weights or proprietary consensus rules.</p></div>
+        <div className="mf-fusion-visual"><div className="mf-fusion-engines">{[['A', 'Technical'], ['B', 'Price Action'], ['C', 'Structure'], ['D', 'Liquidity'], ['E', 'Volatility'], ['F', 'AI Prediction']].map(([letter, title]) => <article key={letter}><span>ENGINE {letter}</span><strong>{title}</strong></article>)}</div><b aria-hidden="true">↓</b><div className="mf-fusion-core"><span>COMBINATION LAYER</span><strong>Fusion / Consensus</strong><small>Private weighting and thresholds</small></div><b aria-hidden="true">↓</b><div className="mf-market-view"><span>OUTPUT</span><strong>Market View</strong></div></div>
+      </section>
+
+      <section className="section mf-output-section">
+        <div className="case-section-title"><Eyebrow>06 / PREDICTION OUTPUT</Eyebrow><h2>Structure the result without fabricating certainty.</h2><p className="section-copy">This is a product-flow visualization. It shows the kinds of context the interface can organize—not a live signal, price, win rate or trading recommendation.</p></div>
+        <div className="mf-output-concept"><div className="mf-output-bar"><span>PRODUCT FLOW VISUALIZATION</span><small>NO LIVE SIGNAL</small></div><div className="mf-output-grid">{[['Market', 'XAUUSD'], ['Direction', 'Bullish / Bearish / Neutral'], ['Confidence', 'Confidence context'], ['Trend', 'Current directional context'], ['Volatility', 'Market condition'], ['Entry Context', 'Potential setup context'], ['Invalidation', 'Conditions that invalidate the view'], ['Risk State', 'Normal / Elevated / Avoid']].map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div></div>
+      </section>
+
+      <section className="section case-anchor mf-risk-section" id="mf-risk">
+        <div className="case-section-title"><Eyebrow>07 / RISK BEFORE PREDICTION</Eyebrow><h2>A prediction is incomplete without knowing when not to trust it.</h2><p className="section-copy">MarketFusion is not designed around simply outputting BUY or SELL. It also considers whether current market conditions make the prediction actionable or unreliable.</p></div>
+        <div className="mf-risk-grid">{riskChecks.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section case-anchor mf-interface-section" id="mf-interface">
+        <div className="section-heading"><div><Eyebrow>08 / SYSTEM INTERFACE</Eyebrow><h2>The prediction engine in practice.</h2><p className="gallery-intro">Sensitive environment, account and model information is intentionally excluded from this public case study.</p></div><span className="mf-interface-badge">PRIVATE PROJECT / CAPTURES WITHHELD</span></div>
+        <MarketFusionInterface />
+      </section>
+
+      <section className="section case-anchor" id="mf-architecture">
+        <div className="case-section-title"><Eyebrow>09 / PUBLIC-SAFE ARCHITECTURE</Eyebrow><h2>The system boundary—without the private model internals.</h2></div>
+        <div className="mf-system-architecture">
+          <article><span>INPUT</span><strong>Market Data APIs</strong></article><b>↓</b>
+          <article><span>COLLECTION</span><strong>Data Collectors</strong></article><b>↓</b>
+          <article><span>PROCESSING</span><strong>Python Feature Processing</strong></article><b>↓</b>
+          <div className="mf-architecture-engines">{['Analysis Engine A', 'Analysis Engine B', 'Analysis Engine C'].map(engine => <article key={engine}><span>INDEPENDENT VIEW</span><strong>{engine}</strong></article>)}</div><b>↓</b>
+          <article><span>COMBINATION</span><strong>Fusion Layer</strong></article><b>↓</b>
+          <div className="mf-model-blackbox compact"><span>PROPRIETARY AI MODEL</span><strong>PRIVATE IMPLEMENTATION</strong></div><b>↓</b>
+          <article><span>CONSTRAINT</span><strong>Risk Engine</strong></article><b>↓</b>
+          <article><span>SERVICE</span><strong>Prediction Service</strong></article><b>↓</b>
+          <article className="dashboard"><span>INTERFACE</span><strong>Dashboard</strong></article>
+        </div>
+      </section>
+
+      <section className="section mf-continuous-section">
+        <div className="case-section-title"><Eyebrow>10 / CONTINUOUS ANALYSIS</Eyebrow><h2>From one-time analysis to a continuous market engine.</h2><p className="section-copy">The architecture is being designed toward continuous market monitoring. This describes the system direction, not a claim that a production server is operating around the clock.</p></div>
+        <div className="mf-continuous-flow">{['New Market Data', 'Update Analysis', 'Re-run Engines', 'Update Prediction', 'Update Risk', 'Refresh Dashboard'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong>{index < 5 ? <b>→</b> : <b>↺</b>}</div>)}</div>
+      </section>
+
+      <section className="section mf-xau-section">
+        <div><Eyebrow>11 / XAUUSD FOCUS</Eyebrow><h2>Built around one market first.</h2></div><p>Rather than immediately supporting dozens of assets, MarketFusion currently focuses on XAUUSD so the analysis pipeline, prediction logic and risk model can be refined around one market before broader expansion.</p>
+      </section>
+
+      <section className="section case-anchor mf-privacy-section" id="mf-privacy">
+        <div className="case-section-title"><Eyebrow>12 / PRIVATE BY DESIGN</Eyebrow><h2>Some of the most important parts are intentionally not on this page.</h2></div>
+        <div className="mf-privacy-grid">{privacyControls.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section case-anchor mf-contribution-section" id="mf-contribution">
+        <div className="case-section-title"><Eyebrow>13 / MY CONTRIBUTION</Eyebrow><h2>Designed and built as my own market-intelligence system.</h2></div>
+        <div className="contribution-layout"><div className="contribution-quote mf-role"><span>INDIVIDUAL PROJECT ROLE</span><strong>Creator<br/>System Designer<br/>Developer<br/>AI Model Development</strong></div><div className="contribution-list mf-contribution-list">{contributions.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>)}</div></div>
+      </section>
+
+      <section className="section mf-challenge-section">
+        <Eyebrow>14 / ENGINEERING CHALLENGES</Eyebrow>
+        <div className="challenge-grid mf-challenges">
+          <article><span>01 / CONFLICTING SIGNALS</span><h3>Different methods disagree</h3><p>Different analysis methods can disagree about the same market.</p></article>
+          <article><span>02 / NOISY MARKET DATA</span><h3>Separate information from noise</h3><p>Financial markets contain significant randomness and short-term noise.</p></article>
+          <article><span>03 / MODEL GENERALIZATION</span><h3>Conditions keep changing</h3><p>A model can appear strong on historical data and behave differently under changing market conditions.</p></article>
+          <article><span>04 / RISK VS PREDICTION</span><h3>Direction is not enough</h3><p>Even a correct directional view may be unusable if volatility, timing or risk is poor.</p></article>
+        </div>
+      </section>
+
+      <section className="section mf-validation-section">
+        <div className="case-section-title"><Eyebrow>15 / RESEARCH &amp; VALIDATION</Eyebrow><h2>Evaluation has to extend beyond one promising result.</h2><p className="section-copy">These are evaluation areas in the research and validation framework—not a claim that every stage is complete.</p><span className="mf-validation-label">RESEARCH / VALIDATION FRAMEWORK</span></div>
+        <div className="mf-validation-grid">{validationAreas.map((item, index) => <article key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></article>)}</div>
+      </section>
+
+      <section className="section mf-limitations">
+        <div><Eyebrow>16 / LIMITATIONS</Eyebrow><h2>Prediction is probability—not certainty.</h2></div><div><p>Financial markets can change because of unexpected economic, geopolitical and liquidity events. MarketFusion is a research and decision-support tool; its outputs are not guaranteed.</p><strong>It is not financial advice or a promise of trading performance.</strong></div>
+      </section>
+
+      <section className="section case-anchor mf-status-section" id="mf-status">
+        <div className="case-section-title"><Eyebrow>17 / PRIVATE R&amp;D</Eyebrow><h2>A working research system that continues to be tested.</h2><p className="section-copy">Statuses reflect the public evidence and current private-research direction without assigning artificial completion percentages.</p></div>
+        <div className="mf-status-grid">{projectStages.map(([number, title, status]) => <article key={title}><span>{number}</span><h3>{title}</h3><strong className={status === 'Implemented' ? 'implemented' : 'testing'}>{status}</strong></article>)}</div>
+      </section>
+
+      <section className="case-outcome mf-outcome">
+        <Eyebrow>18 / DIRECTION</Eyebrow><h2>Turning many market signals into one structured decision-support system.</h2><p>MarketFusion is my private exploration of how market data, multiple forms of analysis, AI prediction and risk logic can be combined into a single XAUUSD intelligence platform.</p><p>Its most sensitive advantage—the internal prediction model and proprietary logic—remains private.</p>
+        <div className="outcome-actions"><Link className="button primary" to="/projects">All Projects</Link><span className="mf-private-cta">PRIVATE PROJECT · SOURCE NOT PUBLIC</span></div>
+      </section>
+    </div>
+  )
+}
+
+const tharangaScreens = [
+  {
+    id: 'load-plan',
+    label: 'Load Plan',
+    image: '/projects/tharanga-ref/warehouse-load-plan.jpeg',
+    title: 'Lorry and load planning',
+    description: 'A mobile staff view that groups confirmed shop orders into a delivery-date load plan and shop-by-shop preparation view.',
+  },
+  {
+    id: 'preferences',
+    label: 'Preferences',
+    image: '/projects/tharanga-ref/mobile-preferences.jpeg',
+    title: 'Mobile account preferences',
+    description: 'A responsive account view for language, order, price and delivery-update preferences without exposing personal identity or client records.',
+  },
+]
+
+function TharangaInterfaceGallery() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const activeScreen = tharangaScreens[activeIndex]
+
+  const showRelativeScreen = offset => {
+    setActiveIndex(index => (index + offset + tharangaScreens.length) % tharangaScreens.length)
+  }
+
+  useEffect(() => {
+    if (!lightboxOpen) return undefined
+    const previousOverflow = document.body.style.overflow
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') setLightboxOpen(false)
+      if (event.key === 'ArrowLeft') showRelativeScreen(-1)
+      if (event.key === 'ArrowRight') showRelativeScreen(1)
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [lightboxOpen])
+
+  return (
+    <>
+      <div className="ref-screen-tabs" role="tablist" aria-label="Tharanga Steel REF application screens">
+        {tharangaScreens.map((screen, index) => <button className={index === activeIndex ? 'active' : ''} key={screen.id} type="button" role="tab" aria-selected={index === activeIndex} onClick={() => setActiveIndex(index)}>{screen.label}</button>)}
+      </div>
+      <div className="ref-gallery-window">
+        <div className="ref-gallery-bar"><div aria-hidden="true"><span></span><span></span><span></span></div><strong>THARANGA STEEL REF / {activeScreen.label.toUpperCase()}</strong><small>RESPONSIVE APPLICATION</small></div>
+        <div className="ref-gallery-canvas"><button type="button" onClick={() => setLightboxOpen(true)} aria-label={`Enlarge ${activeScreen.title} screenshot`}><img src={activeScreen.image} alt={`Tharanga Steel REF ${activeScreen.title} interface`} /><span>Click image to enlarge</span></button></div>
+      </div>
+      <div className="ref-gallery-caption"><span>{String(activeIndex + 1).padStart(2, '0')} / APPLICATION UI</span><div><h3>{activeScreen.title}</h3><p>{activeScreen.description}</p></div></div>
+      <div className="ref-thumbnails">
+        {tharangaScreens.map((screen, index) => <button className={index === activeIndex ? 'active' : ''} key={screen.id} type="button" onClick={() => setActiveIndex(index)} aria-label={`Show ${screen.title}`}><span><img src={screen.image} alt="" loading="lazy" /></span><strong>{screen.label}</strong></button>)}
+      </div>
+
+      {lightboxOpen && <div className="ref-lightbox" role="dialog" aria-modal="true" aria-label={`${activeScreen.title} full-screen preview`} onClick={() => setLightboxOpen(false)}>
+        <button className="ref-lightbox-close" type="button" onClick={() => setLightboxOpen(false)} aria-label="Close full-screen preview">Close <span>×</span></button>
+        <button className="ref-lightbox-arrow previous" type="button" onClick={event => { event.stopPropagation(); showRelativeScreen(-1) }} aria-label="Previous screenshot">←</button>
+        <div className="ref-lightbox-content" onClick={event => event.stopPropagation()}><img src={activeScreen.image} alt={`Tharanga Steel REF ${activeScreen.title}`} /><p>{activeScreen.title}</p></div>
+        <button className="ref-lightbox-arrow next" type="button" onClick={event => { event.stopPropagation(); showRelativeScreen(1) }} aria-label="Next screenshot">→</button>
+      </div>}
+    </>
+  )
+}
+
+function TharangaRefCaseStudy({ project }) {
+  const roleCards = [
+    ['01', 'Sales Representative', 'Visit or manage assigned shops and create orders.', 'Route → Shop → Products → Price → Order'],
+    ['02', 'Warehouse Staff', 'Prepare confirmed orders for dispatch.', 'Orders → Preparation → Loading → Vehicle Assignment'],
+    ['03', 'Driver / Delivery', 'Receive assigned delivery work and move orders to shops.', 'Assigned Load → Delivery → Complete'],
+    ['04', 'Admin / Management', 'Manage products, pricing, shops, users and operational visibility.', 'Products → Prices → Routes → Orders → Operations'],
+  ]
+
+  const orderJourney = [
+    ['Sales Route', 'The representative works through an assigned route.'],
+    ['Shop', 'Select the customer or shop context.'],
+    ['Product Discovery', 'Search or browse steel products.'],
+    ['Pricing', 'Apply the relevant product pricing.'],
+    ['Order', 'Create the shop order.'],
+    ['Order Confirmation', 'Move the request into operational processing.'],
+    ['Warehouse', 'See what needs to be prepared.'],
+    ['Loading', 'Prepare and load products for dispatch.'],
+    ['Lorry Assignment', 'Assign the delivery load to a vehicle.'],
+    ['Driver', 'Provide the assigned delivery work.'],
+    ['Delivery', 'Move goods to the shop or customer.'],
+    ['Complete', 'Update the delivery and order state.'],
+  ]
+
+  const securityGroups = [
+    ['Identity', ['Authentication', 'Session handling']],
+    ['Role Access', ['Sales representative permissions', 'Warehouse access', 'Driver access', 'Administrator controls']],
+    ['Data Access', ['Shops', 'Orders', 'Prices', 'Operational records']],
+    ['Database', ['Supabase policies and RLS where applicable', 'Backend-trusted operations']],
+    ['Client Data', ['Keep private customer and shop details away from public views']],
+    ['Secrets', ['Environment variables', 'Supabase credentials', 'Deployment configuration']],
+    ['Auditability', ['Operational state and status tracking where implemented']],
+  ]
+
+  const modules = [
+    ['01', 'Sales Routes', 'Organize field-sales work around assigned routes and shops.'],
+    ['02', 'Shop Management', 'Maintain the shop context needed for sales and fulfilment.'],
+    ['03', 'Product Catalogue', 'Manage steel products, categories, availability and visibility.'],
+    ['04', 'Product Search', 'Find products through search and category navigation.'],
+    ['05', 'Pricing', 'Support base pricing and configured shop-specific overrides.'],
+    ['06', 'Order Management', 'Move shop requests through confirmation and operational states.'],
+    ['07', 'Warehouse', 'Surface confirmed work for preparation.'],
+    ['08', 'Load / Lorry Management', 'Group loads and connect preparation to a vehicle.'],
+    ['09', 'Delivery', 'Carry assigned work through delivery and completion states.'],
+    ['10', 'Admin Operations', 'Manage the product, user and operational foundation.'],
+  ]
+
+  const contributions = [
+    'Understood and translated the requested company workflow into a product structure.',
+    'Developed the product concept and overall system design.',
+    'Designed the sales-representative, route and shop workflow.',
+    'Built product catalogue, search and category experiences.',
+    'Worked on base and shop-specific pricing behavior.',
+    'Designed the order journey from field request to operational processing.',
+    'Developed warehouse, loading, lorry and delivery workflow concepts.',
+    'Built the responsive web interface for field and staff use.',
+    'Integrated the Supabase-backed operational data layer.',
+    'Worked on database changes and iterative application development.',
+    'Reviewed role access, client privacy and production considerations.',
+    'Debugged workflows and refined the product around operational feedback.',
+  ]
+
+  const developmentStages = [
+    ['01', 'Sales Workflow', 'Implemented'],
+    ['02', 'Product / Pricing', 'Implemented'],
+    ['03', 'Order Management', 'In Development'],
+    ['04', 'Warehouse', 'In Development'],
+    ['05', 'Delivery', 'In Development'],
+    ['06', 'Admin', 'Planned'],
+    ['07', 'Production Hardening', 'In Development'],
+  ]
+
+  return (
+    <div className="tharanga-case">
+      <section className="ref-hero">
+        <div className="ref-industrial-grid" aria-hidden="true"></div>
+        <div className="ref-route-motif" aria-hidden="true"><span></span><b></b><span></span><b></b><span></span></div>
+        <div className="case-breadcrumb"><Link to="/projects">Projects</Link><span>/</span><span>Tharanga Steel REF</span></div>
+        <div className="ref-hero-grid">
+          <div>
+            <div className="ref-status"><span></span>CLIENT PROJECT / IN DEVELOPMENT</div>
+            <div className="case-kicker"><span>05</span> CLIENT BUSINESS SYSTEM</div>
+            <h1>THARANGA<br/><span>STEEL REF</span></h1>
+            <p className="ref-lead">A sales, order, warehouse and delivery operations system designed around the workflow of Tharanga Steel Pvt Ltd.</p>
+            <p className="ref-supporting">The system connects sales representatives, routes, shops, products, pricing, orders, warehouse preparation, lorry loading and delivery operations through one structured workflow.</p>
+            <div className="chips ref-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div>
+          </div>
+          <aside className="case-facts ref-facts">
+            <div><span>Client</span><strong>Tharanga Steel Pvt Ltd</strong></div>
+            <div><span>Project</span><strong>Tharanga Steel REF</strong></div>
+            <div><span>Type</span><strong>Sales &amp; Distribution Operations System</strong></div>
+            <div><span>Role</span><strong>Product Designer / Developer</strong></div>
+            <div><span>Platform</span><strong>Responsive Web Application</strong></div>
+            <div><span>Backend</span><strong>Supabase</strong></div>
+            <div><span>Focus</span><strong>Sales · Orders · Warehouse · Delivery</strong></div>
+            <div><span>Status</span><strong>Client Project / In Development</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="case-metrics ref-metrics">
+        <div><strong>Field Sales</strong><span>Routes · shops · order building</span></div>
+        <div><strong>Flexible Pricing</strong><span>Base and shop context</span></div>
+        <div><strong>Fulfilment</strong><span>Warehouse · load · vehicle</span></div>
+        <div><strong>Delivery</strong><span>Assigned work to completion</span></div>
+      </section>
+
+      <nav className="case-subnav ref-subnav" aria-label="Tharanga Steel REF case study sections">
+        <a href="#overview">Overview</a><a href="#workflow">Workflow</a><a href="#interface">Interface</a><a href="#ref-sales">Sales</a><a href="#ref-products">Products</a><a href="#warehouse">Warehouse</a><a href="#ref-delivery">Delivery</a><a href="#architecture">Architecture</a><a href="#ref-security">Security</a><a href="#contribution">Contribution</a><a href="#ref-status">Status</a>
+      </nav>
+
+      <section className="section ref-overview case-anchor" id="overview">
+        <div className="case-section-title"><Eyebrow>01 / BUSINESS PROBLEM</Eyebrow><h2>One order moves through many people before it reaches the shop.</h2></div>
+        <div className="ref-overview-layout">
+          <div><p className="case-big-copy">A steel distribution workflow can involve a sales representative, customer or shop, pricing, order confirmation, warehouse preparation, vehicle loading and delivery.</p><p>When those stages are handled through disconnected calls, messages or records, it becomes difficult to understand what was ordered, which price applies, what needs to be loaded, which vehicle is responsible and whether delivery is complete.</p><p>Tharanga Steel REF brings those operational stages into one connected system.</p></div>
+          <div className="ref-simple-flow">{['Sales Rep', 'Route', 'Shop', 'Products / Pricing', 'Order', 'Warehouse', 'Loading', 'Lorry', 'Driver', 'Delivery'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong>{index < 9 && <b aria-hidden="true">↓</b>}</div>)}</div>
+        </div>
+      </section>
+
+      <section className="section ref-roles-section">
+        <div className="section-heading"><div><Eyebrow>02 / WHO USES IT?</Eyebrow><h2>Different roles. One shared order journey.</h2></div></div>
+        <div className="ref-role-grid">{roleCards.map(([number, title, purpose, flow]) => <article key={title}><span>{number} / ROLE</span><h3>{title}</h3><p>{purpose}</p><strong>{flow}</strong></article>)}</div>
+      </section>
+
+      <section className="section ref-workflow-section case-anchor" id="workflow">
+        <div className="case-section-title"><Eyebrow>03 / ORDER JOURNEY</Eyebrow><h2>From sales visit to completed delivery.</h2></div>
+        <ol className="ref-order-journey">{orderJourney.map(([title, text], index) => <li key={title}><span>{String(index + 1).padStart(2, '0')}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol>
+      </section>
+
+      <section className="section ref-interface-section case-anchor" id="interface">
+        <div className="section-heading"><div><Eyebrow>04 / PRODUCT INTERFACE</Eyebrow><h2>The operational workflow in practice.</h2><p className="gallery-intro">Only public-safe interface captures are shown. Client-sensitive operational information is intentionally excluded.</p></div><span className="ref-interface-badge">REAL APPLICATION UI</span></div>
+        <TharangaInterfaceGallery />
+      </section>
+
+      <section className="section case-anchor" id="ref-sales">
+        <div className="case-section-title"><Eyebrow>05 / FIELD SALES WORKFLOW</Eyebrow><h2>Built around how a representative sells to shops.</h2><p className="section-copy">The field workflow keeps the active route and shop context connected to product discovery, pricing and order creation.</p></div>
+        <div className="ref-sales-flow">{['My Route', 'Select Shop', 'Search Products', 'Check Price', 'Add Quantity', 'Review Order', 'Submit'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></div>)}</div>
+        <div className="ref-feature-grid">{[['Routes', 'Organize shops by sales route.'], ['Shop Context', 'Work with the selected shop or customer.'], ['Product Search', 'Use fuzzy discovery and product categories.'], ['Pricing', 'Use base or configured shop-specific pricing.'], ['Order Building', 'Build the customer’s requested product list.']].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section ref-products-section case-anchor" id="ref-products">
+        <div className="case-section-title"><Eyebrow>06 / CATALOGUE &amp; PRICING</Eyebrow><h2>One catalogue, flexible pricing per shop.</h2><p className="section-copy">Product management connects names, categories, base pricing, stock and active or hidden visibility with the shop context used during order creation.</p></div>
+        <div className="ref-product-layout">
+          <div className="ref-product-concepts">{[['Products', ['Name', 'Category', 'Base price', 'Stock', 'Active / hidden status']], ['Shop Visibility', ['Control product availability for a shop where configured']], ['Custom Price', ['Use shop-specific price overrides where configured']], ['Price Update', ['Make updated pricing available through the shared data layer']], ['Search', ['Support product and category discovery']]].map(([title, items], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div>
+          <div className="ref-pricing-visual"><div><span>CATALOGUE RECORD</span><strong>Product</strong></div><b>↓</b><div><span>DEFAULT CONTEXT</span><strong>Base Price</strong></div><b>↓</b><div className="ref-shop-prices">{['Shop A', 'Shop B', 'Shop C'].map((shop, index) => <article key={shop}><span>{shop}</span><strong>{index === 1 ? 'Custom?' : 'Default / Custom?'}</strong></article>)}</div><small>Conceptual pricing flow · no client prices shown</small></div>
+        </div>
+      </section>
+
+      <section className="section ref-discovery-section">
+        <div><Eyebrow>07 / PRODUCT DISCOVERY</Eyebrow><h2>Find products quickly while creating an order.</h2><p>A sales representative should not need to manually scroll through a large steel-product list while standing at a customer location.</p></div>
+        <div><div className="ref-category-list">{['TOR / Bars', 'Angle Iron', 'Sheets / Roofing'].map(category => <span key={category}>{category}</span>)}</div><ul><li>Fuzzy search and typo tolerance</li><li>Instant suggestions</li><li>Category filtering</li><li>Direct product and category navigation</li></ul><small>Only categories visible in the reviewed application capture are named.</small></div>
+      </section>
+
+      <section className="section ref-warehouse-section case-anchor" id="warehouse">
+        <div className="case-section-title"><Eyebrow>08 / FULFILMENT</Eyebrow><h2>The order does not stop when the salesperson presses submit.</h2><p className="section-copy">The system extends the order journey into preparation, load planning, vehicle assignment and dispatch-related work.</p></div>
+        <div className="ref-fulfilment-flow">{['Confirmed Order', 'Warehouse', 'Prepare Items', 'Load', 'Lorry Assignment', 'Driver'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong>{index < 5 && <b>→</b>}</div>)}</div>
+        <div className="ref-feature-grid warehouse">{[['Order Queue', 'Bring confirmed operational work into one preparation view.'], ['Warehouse Preparation', 'Organize the items that need to be prepared.'], ['Load Management', 'Combine prepared order quantities into a load plan.'], ['Vehicle Assignment', 'Connect the delivery load to a lorry.'], ['Dispatch', 'Move prepared work into its delivery stage.']].map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section ref-delivery-section case-anchor" id="ref-delivery">
+        <div className="case-section-title"><Eyebrow>09 / LAST-MILE OPERATIONS</Eyebrow><h2>Connect the warehouse to the final delivery.</h2><p className="section-copy">The public workflow describes delivery states without claiming GPS or live-location tracking.</p></div>
+        <div className="ref-delivery-flow">{['Assigned', 'Loaded', 'Out for Delivery', 'Delivered', 'Complete'].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong>{index < 4 && <b>↓</b>}</div>)}</div>
+      </section>
+
+      <section className="section case-anchor ref-architecture-section" id="architecture">
+        <div className="case-section-title"><Eyebrow>10 / ARCHITECTURE</Eyebrow><h2>One shared operational data layer across the workflow.</h2></div>
+        <div className="ref-architecture">
+          <div className="ref-client-grid">{['Sales Rep Portal', 'Warehouse UI', 'Driver UI', 'Admin UI'].map(client => <article key={client}><span>ROLE EXPERIENCE</span><strong>{client}</strong></article>)}</div><b>↓</b>
+          <article className="ref-architecture-node"><span>CLIENT</span><strong>Responsive Web Application</strong></article><b>↓</b>
+          <article className="ref-supabase-node"><span>SHARED APPLICATION BACKEND</span><strong>Supabase</strong><div><i>Auth</i><i>PostgreSQL</i></div></article><b>↓</b>
+          <div className="ref-data-grid">{['Users', 'Shops', 'Products', 'Orders', 'Routes', 'Prices', 'Stock', 'Delivery'].map(entity => <strong key={entity}>{entity}</strong>)}</div>
+        </div>
+      </section>
+
+      <section className="section ref-shared-data-section">
+        <div><Eyebrow>11 / SHARED OPERATIONAL DATA</Eyebrow><h2>When pricing changes, the workflow should not depend on yesterday’s spreadsheet.</h2></div><div><p>Product pricing and shop-specific pricing use the shared Supabase-backed data layer so application views can reflect current operational data.</p><p>This describes a connected data workflow without promising millisecond synchronization or exposing subscription and channel implementation.</p></div>
+      </section>
+
+      <section className="section ref-modules-section">
+        <div className="section-heading"><div><Eyebrow>12 / CORE MODULES</Eyebrow><h2>The operation beyond a single order form.</h2></div></div>
+        <div className="ref-module-grid">{modules.map(([number, title, text]) => <article key={title}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="section ref-security-section case-anchor" id="ref-security">
+        <div className="case-section-title"><Eyebrow>13 / SECURITY &amp; ACCESS</Eyebrow><h2>Business operations need the right information shown to the right role.</h2><p className="section-copy">These are security and production considerations, not a claim of security certification, audit or penetration testing.</p><span className="ref-security-label">SECURITY / PRODUCTION CONSIDERATIONS</span></div>
+        <div className="ref-security-groups">{securityGroups.map(([title, items], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><ul>{items.map(item => <li key={item}>{item}</li>)}</ul></div></article>)}</div>
+      </section>
+
+      <section className="section ref-contribution-section case-anchor" id="contribution">
+        <div className="case-section-title"><Eyebrow>14 / MY CONTRIBUTION</Eyebrow><h2>Turning a company workflow into a connected application.</h2><p className="section-copy">This is a project I built around the company’s requested operational workflow.</p></div>
+        <div className="contribution-layout"><div className="contribution-quote ref-role"><span>ROLE ACROSS THE PROJECT</span><strong>Product Design<br/>Full-Stack Development<br/>Business Workflow Design</strong></div><div className="contribution-list ref-contribution-list">{contributions.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><p>{item}</p></div>)}</div></div>
+      </section>
+
+      <section className="section ref-challenge-section">
+        <Eyebrow>15 / ENGINEERING CHALLENGES</Eyebrow>
+        <div className="ref-challenge-grid">
+          <article><span>01 / MULTI-ROLE WORKFLOW</span><h3>Different hands, shared order</h3><p>Sales, warehouse, driver and management users interact with the same order at different stages.</p></article>
+          <article><span>02 / PRICE CONTEXT</span><h3>The selected shop matters</h3><p>The correct product price may depend on the selected shop or customer context.</p></article>
+          <article><span>03 / ORDER STATE</span><h3>Maintain operational continuity</h3><p>One order moves from sales creation into warehouse and delivery operations.</p></article>
+          <article><span>04 / FIELD USABILITY</span><h3>Fast away from a desk</h3><p>Sales representatives need quick product discovery and simple order creation in the field.</p></article>
+          <article><span>05 / CLIENT PRIVACY</span><h3>Evidence needs boundaries</h3><p>Internal operational information must not leak into public interfaces or portfolio evidence.</p></article>
+        </div>
+      </section>
+
+      <section className="section ref-purpose-section">
+        <div><Eyebrow>16 / BUSINESS PURPOSE</Eyebrow><h2>Designed to connect the operation, not just digitize one form.</h2></div><div className="ref-purpose-list">{['Centralize the order flow', 'Reduce disconnected communication', 'Improve operational visibility', 'Connect field sales to warehouse', 'Connect warehouse to delivery', 'Keep product and pricing data consistent'].map((item, index) => <div key={item}><span>0{index + 1}</span><strong>{item}</strong></div>)}</div>
+      </section>
+
+      <section className="section ref-status-section case-anchor" id="ref-status">
+        <div className="case-section-title"><Eyebrow>17 / CLIENT PROJECT</Eyebrow><h2>Active development around a real operational workflow.</h2><p className="section-copy">The project status is presented without deployment claims or artificial completion percentages.</p></div>
+        <div className="ref-development-grid">{developmentStages.map(([number, title, status]) => <article key={title}><span>{number}</span><h3>{title}</h3><strong className={status.toLowerCase().replaceAll(' ', '-')}>{status}</strong></article>)}</div>
+      </section>
+
+      <section className="case-outcome ref-outcome">
+        <Eyebrow>18 / DIRECTION</Eyebrow><h2>From sales visit to delivery—one operational workflow.</h2><p>Tharanga Steel REF translates a real distribution workflow into a connected digital system. The project brings sales representatives, shops, products, pricing, orders, warehouse operations, vehicle loading and delivery into one structured application flow.</p>
+        <div className="ref-client-mark"><span>CLIENT PROJECT</span><strong>Tharanga Steel Pvt Ltd</strong></div>
+        <div className="outcome-actions"><Link className="button primary" to="/projects">All Projects</Link><span className="ref-next-note">NEXT · PORTFOLIO-WIDE FINAL POLISH</span></div>
+      </section>
+    </div>
+  )
+}
+
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find(p => p.slug === slug)
@@ -1381,6 +1910,8 @@ function ProjectDetail() {
   if (slug === 'vision-guard') return <VisionGuardCaseStudy project={project} />
   if (slug === 'shenvix-pos') return <ShenvixCaseStudy project={project} />
   if (slug === 'book4tech') return <Book4TechCaseStudy project={project} />
+  if (slug === 'marketfusion') return <MarketFusionCaseStudy project={project} />
+  if (slug === 'tharanga-ref') return <TharangaRefCaseStudy project={project} />
 
   return (
     <>
