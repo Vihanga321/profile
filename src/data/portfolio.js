@@ -13,9 +13,9 @@ export const projects = [
     slug: 'vision-guard',
     number: '01',
     title: 'Vision Guard',
-    category: 'Cybersecurity / Smart Surveillance',
+    category: 'Cybersecurity / Smart Surveillance · In Development',
     summary:
-      'A smart CCTV monitoring system designed to detect unauthorized access, network threats and physical tampering.',
+      'An in-development smart CCTV monitoring system designed to detect unauthorized access, network threats and physical tampering.',
     stack: ['React', 'Node.js', 'Express', 'MySQL', 'CCTV Security'],
     highlights: [
       'Cyber + physical CCTV threat monitoring',
