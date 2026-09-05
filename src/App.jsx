@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useParams } from 'react-router-dom'
 import { profile, projects, skills } from './data/portfolio'
 
@@ -253,6 +253,169 @@ function Projects() {
   )
 }
 
+const shenvixScreens = [
+  {
+    id: 'dashboard',
+    label: 'Dashboard',
+    image: '/projects/shenvix/dashboard.png',
+    title: 'Business Dashboard',
+    description:
+      'A central view of sales, profit, expenses, invoices, stock value, outstanding balances, load sales and active driver operations.',
+  },
+  {
+    id: 'sales',
+    label: 'POS / Sales',
+    image: '/projects/shenvix/sales.png',
+    title: 'Retail Sales & Invoicing',
+    description:
+      'Barcode and item entry, retail and wholesale workflows, customer details, payments, discounts, warranty, held bills, voids, drawer controls and invoice operations.',
+  },
+  {
+    id: 'products',
+    label: 'Products',
+    image: '/projects/shenvix/products.png',
+    title: 'Product & Stock Management',
+    description:
+      'Manage hardware products, product codes, Sinhala names, categories, brands, suppliers, cost, retail and wholesale prices, stock quantities, reorder levels, rack locations, units, warranty and expiry information.',
+  },
+  {
+    id: 'suppliers',
+    label: 'Suppliers',
+    image: '/projects/shenvix/suppliers.png',
+    title: 'Supplier Management',
+    description:
+      'Supplier records, company details, contact information, supplied products, credit balances and supplier status.',
+  },
+  {
+    id: 'grn',
+    label: 'GRN / Purchases',
+    image: '/projects/shenvix/grn-purchases.png',
+    title: 'GRN & Purchasing',
+    description:
+      'Receive supplier stock, record supplier invoices, update purchasing costs, quantities, selling prices, expiry dates, rack locations and supplier balances.',
+  },
+  {
+    id: 'reports',
+    label: 'Reports',
+    image: '/projects/shenvix/reports.png',
+    title: 'Business Reporting',
+    description:
+      'Sales, stock, purchasing, income and operational reporting with date filters and PDF, print and Excel export workflows.',
+  },
+  {
+    id: 'backup',
+    label: 'Backup / Restore',
+    image: '/projects/shenvix/backup-restore.png',
+    title: 'Backup & Recovery',
+    description:
+      'Manual backup, database restore, automatic backup configuration and backup-history controls for the local SQLite business database.',
+  },
+]
+
+function ShenvixGallery() {
+  const [activeScreenId, setActiveScreenId] = useState(shenvixScreens[0].id)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const activeIndex = shenvixScreens.findIndex(screen => screen.id === activeScreenId)
+  const activeScreen = shenvixScreens[activeIndex]
+
+  useEffect(() => {
+    if (!lightboxOpen) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    const closeOnEscape = event => {
+      if (event.key === 'Escape') setLightboxOpen(false)
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [lightboxOpen])
+
+  const selectScreen = id => {
+    setActiveScreenId(id)
+    setLightboxOpen(false)
+  }
+
+  return (
+    <>
+      <div className="screen-tabs" role="tablist" aria-label="Shenvix POS screens">
+        {shenvixScreens.map(screen => (
+          <button
+            className={screen.id === activeScreen.id ? 'active' : ''}
+            key={screen.id}
+            type="button"
+            role="tab"
+            aria-selected={screen.id === activeScreen.id}
+            onClick={() => selectScreen(screen.id)}
+          >
+            {screen.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="gallery-stage" role="tabpanel" aria-label={activeScreen.title}>
+        <div className="gallery-window">
+          <div className="gallery-window-bar">
+            <div className="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span>SHENVIX POS / {activeScreen.label.toUpperCase()}</span>
+            <small>REAL APPLICATION UI</small>
+          </div>
+          <button
+            className="gallery-image-button"
+            type="button"
+            onClick={() => setLightboxOpen(true)}
+            aria-label={`Enlarge ${activeScreen.title} screenshot`}
+          >
+            <img
+              src={activeScreen.image}
+              alt={`Shenvix POS ${activeScreen.title} screen built for Sudeepa Hardware`}
+            />
+            <span>Click image to enlarge</span>
+          </button>
+        </div>
+
+        <div className="gallery-caption">
+          <span>{String(activeIndex + 1).padStart(2, '0')} / {activeScreen.label}</span>
+          <div>
+            <h3>{activeScreen.title}</h3>
+            <p>{activeScreen.description}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="screen-thumbnails" aria-label="Choose another Shenvix POS screen">
+        {shenvixScreens.map((screen, index) => (
+          <button
+            className={screen.id === activeScreen.id ? 'active' : ''}
+            key={screen.id}
+            type="button"
+            onClick={() => selectScreen(screen.id)}
+            aria-label={`Show ${screen.title}`}
+            aria-current={screen.id === activeScreen.id ? 'true' : undefined}
+          >
+            <img src={screen.image} alt="" loading="lazy" />
+            <span>{String(index + 1).padStart(2, '0')} / {screen.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {lightboxOpen && (
+        <div className="image-lightbox" role="dialog" aria-modal="true" aria-label={`${activeScreen.title} full-screen preview`} onClick={() => setLightboxOpen(false)}>
+          <button className="lightbox-close" type="button" aria-label="Close full-screen preview" onClick={() => setLightboxOpen(false)}>Close <span>×</span></button>
+          <div className="lightbox-content" onClick={event => event.stopPropagation()}>
+            <img src={activeScreen.image} alt={`Shenvix POS ${activeScreen.title} screen`} />
+            <p>{activeScreen.title} <span>— {activeScreen.label}</span></p>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
+
 function ShenvixCaseStudy({ project }) {
   const modules = [
     ['01', 'Retail & Wholesale POS', 'Fast item or barcode entry, retail / wholesale modes, customer details, discounts, payment status, held bills, voids and receipt operations.'],
@@ -306,10 +469,12 @@ function ShenvixCaseStudy({ project }) {
           </div>
 
           <aside className="case-facts">
-            <div><span>Role</span><strong>Founder / Product Designer / Developer</strong></div>
-            <div><span>Platform</span><strong>Windows Desktop + Selected Cloud Modules</strong></div>
-            <div><span>Architecture</span><strong>Electron · React · Prisma · SQLite</strong></div>
+            <div><span>Project</span><strong>Shenvix POS</strong></div>
             <div><span>Built For</span><strong>Sudeepa Hardware</strong></div>
+            <div><span>Role</span><strong>Founder / Product Designer / Developer</strong></div>
+            <div><span>Type</span><strong>Custom Business Software</strong></div>
+            <div><span>Platform</span><strong>Windows Desktop + selected cloud-connected operational modules</strong></div>
+            <div><span>Tech Stack</span><strong>Electron · React · TypeScript · Prisma · SQLite · Supabase</strong></div>
           </aside>
         </div>
       </section>
@@ -343,61 +508,13 @@ function ShenvixCaseStudy({ project }) {
       <section className="section screenshot-section">
         <div className="section-heading">
           <div>
-            <Eyebrow>02 / REAL INTERFACE</Eyebrow>
-            <h2>Actual Shenvix POS screens from Sudeepa Hardware.</h2>
+            <Eyebrow>02 / PRODUCT INTERFACE</Eyebrow>
+            <h2>Built for real day-to-day hardware-store operations.</h2>
+            <p className="gallery-intro">Actual Shenvix POS application screens from the system built for Sudeepa Hardware.</p>
           </div>
-          <p className="screenshot-note">Real application screenshots — not mockups.</p>
+          <span className="interface-badge">REAL APPLICATION UI</span>
         </div>
-
-        <div className="real-shot-featured">
-          <div className="real-shot-frame">
-            <img src="/projects/shenvix/dashboard.webp" alt="Shenvix POS dashboard built for Sudeepa Hardware" loading="lazy" />
-          </div>
-          <div className="shot-caption">
-            <span>01</span>
-            <div>
-              <strong>Business dashboard</strong>
-              <p>Sales, profit, expenses, invoice count, stock value, outstanding balances, load operations and driver-job visibility in one owner/admin view.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="real-shot-grid">
-          <article>
-            <div className="real-shot-frame">
-              <img src="/projects/shenvix/products.webp" alt="Shenvix POS product management screen" loading="lazy" />
-            </div>
-            <div className="shot-caption">
-              <span>02</span>
-              <div>
-                <strong>Product & stock management</strong>
-                <p>Product codes, supplier, category, brand, cost, retail and wholesale pricing, quantity, reorder level, rack, warranty and expiry data.</p>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div className="real-shot-frame">
-              <img src="/projects/shenvix/sales.webp" alt="Shenvix POS retail sales and invoicing screen" loading="lazy" />
-            </div>
-            <div className="shot-caption">
-              <span>03</span>
-              <div>
-                <strong>Retail sales / invoicing</strong>
-                <p>Barcode and item entry, customer details, payment state, discounts, warranty, held bills, voids, drawer control, reprints and invoice operations.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div className="screen-inventory">
-          <span>OTHER WORKFLOWS IN THE SYSTEM</span>
-          <div>
-            {['Suppliers', 'GRN / Purchases', 'Reports', 'Backup / Restore', 'Warranty', 'Sales Return', 'Outstanding', 'Rentals', 'Manufacturing', 'Audit Logs'].map(item => (
-              <small key={item}>{item}</small>
-            ))}
-          </div>
-        </div>
+        <ShenvixGallery />
       </section>
 
       <section className="section architecture-section">

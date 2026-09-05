@@ -31,7 +31,7 @@ export const projects = [
     category: 'Retail / Hardware Store Business Software',
     summary:
       'A custom POS and business operations system built for Sudeepa Hardware, covering retail / wholesale sales, inventory, suppliers, purchasing, warranty, credit, rentals, manufacturing and delivery.',
-    stack: ['Electron', 'React', 'TypeScript', 'Prisma', 'SQLite'],
+    stack: ['Electron', 'React', 'TypeScript', 'Prisma', 'SQLite', 'Supabase'],
     highlights: [
       'Built for Sudeepa Hardware',
       'Retail / wholesale POS and hardware inventory',
