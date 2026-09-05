@@ -255,14 +255,14 @@ function Projects() {
 
 function ShenvixCaseStudy({ project }) {
   const modules = [
-    ['01', 'Point of Sale', 'Fast checkout, product lookup, held bills, voids, reprints and operational controls for daily sales.'],
-    ['02', 'Inventory', 'Products, stock movement, GRN / purchasing workflows and stock-aware sales operations.'],
-    ['03', 'Customers & Warranty', 'Customer records, autofill, warranty lookup and after-sales support workflows.'],
-    ['04', 'Reports & Expenses', 'Day bills, operational reporting, expenses and business visibility for owners.'],
-    ['05', 'Delivery Operations', 'Loading-to-complete delivery jobs, driver workflows, fuel expenses and owner oversight.'],
-    ['06', 'Manufacturing', 'Material prices, production records and stock summaries for block / brick manufacturing.'],
-    ['07', 'Rental', 'Rental periods, advances, customer identity capture and item return tracking.'],
-    ['08', 'Admin & Recovery', 'Users, audit logs, settings, activation, backup / restore and operational safeguards.'],
+    ['01', 'Retail & Wholesale POS', 'Fast item or barcode entry, retail / wholesale modes, customer details, discounts, payment status, held bills, voids and receipt operations.'],
+    ['02', 'Products & Stock', 'Hardware product codes, Sinhala names, categories, brands, suppliers, cost / selling prices, quantities, reorder levels, racks, UOM, warranty and expiry data.'],
+    ['03', 'Suppliers & GRN', 'Supplier records, supplied products, credit balances, stock receiving, supplier invoices, purchasing costs and GRN summaries.'],
+    ['04', 'Credit & Outstanding', 'Pay-later sales, outstanding balances, payment tracking and operational visibility around customer credit.'],
+    ['05', 'Warranty & Returns', 'Warranty-aware products, warranty lookup and sales-return workflows for after-sales support.'],
+    ['06', 'Rentals', 'Rental products, rental records, advances and reporting alongside the normal hardware retail business.'],
+    ['07', 'Manufacturing & Delivery', 'Raw-material prices, production / manufacturing records, load sales, driver jobs and lorry-delivery workflows.'],
+    ['08', 'Reports, Admin & Recovery', 'Sales and stock reports, PDF / Excel export, expenses, users, audit logs, settings, backup / restore and auto-backup controls.'],
   ]
 
   const threats = [
@@ -277,10 +277,10 @@ function ShenvixCaseStudy({ project }) {
   ]
 
   const contributions = [
-    'Designed the product structure and business workflows from POS checkout through back-office operations.',
+    'Translated Sudeepa Hardware's real retail and back-office workflows into the product structure, from checkout through stock, purchasing and operations.',
     'Built the desktop application stack with Electron, React and TypeScript.',
     'Designed and evolved the local data layer using Prisma and SQLite.',
-    'Implemented sales, product, stock, customer, warranty, supplier and reporting workflows.',
+    'Implemented retail / wholesale sales, product, stock, customer, warranty, supplier, GRN / purchases, outstanding and reporting workflows.',
     'Integrated receipt printing and cash-drawer operations into the desktop experience.',
     'Expanded the system into delivery, manufacturing and rental workflows instead of keeping it as a basic POS.',
     'Worked through production-style bugs including bill voiding, receipt rendering, UI layout and database migration issues.',
@@ -299,8 +299,8 @@ function ShenvixCaseStudy({ project }) {
             <div className="case-kicker"><span>02</span> BUSINESS SOFTWARE / DESKTOP ECOSYSTEM</div>
             <h1>SHENVIX<br/><span>POS</span></h1>
             <p className="shenvix-lead">
-              A modular point-of-sale and business operations system that grew from checkout and stock control into
-              warranty, reporting, delivery, manufacturing, rental and cloud-connected workflows.
+              A custom point-of-sale and business operations system I built for Sudeepa Hardware, combining day-to-day
+              hardware-store sales with stock, suppliers, warranty, credit, rentals, manufacturing, delivery and reporting.
             </p>
             <div className="chips case-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div>
           </div>
@@ -309,14 +309,14 @@ function ShenvixCaseStudy({ project }) {
             <div><span>Role</span><strong>Founder / Product Designer / Developer</strong></div>
             <div><span>Platform</span><strong>Windows Desktop + Selected Cloud Modules</strong></div>
             <div><span>Architecture</span><strong>Electron · React · Prisma · SQLite</strong></div>
-            <div><span>Focus</span><strong>Retail & Business Operations</strong></div>
+            <div><span>Built For</span><strong>Sudeepa Hardware</strong></div>
           </aside>
         </div>
       </section>
 
       <section className="case-metrics">
-        <div><strong>Multi-module</strong><span>Business ecosystem</span></div>
-        <div><strong>Desktop-first</strong><span>Operational application</span></div>
+        <div><strong>Sudeepa Hardware</strong><span>Real business use case</span></div>
+        <div><strong>Retail + Wholesale</strong><span>Sales workflows</span></div>
         <div><strong>Local + Cloud</strong><span>Hybrid workflow design</span></div>
         <div><strong>End-to-end</strong><span>Product ownership</span></div>
       </section>
@@ -328,14 +328,14 @@ function ShenvixCaseStudy({ project }) {
         </div>
         <div className="case-story-copy">
           <p className="case-big-copy">
-            Small and growing businesses often operate sales, stock, warranty, suppliers, expenses and delivery as
-            separate processes. Shenvix POS was designed around the idea that those workflows should connect.
+            Sudeepa Hardware needed more than a simple billing screen. A hardware-store workflow has large product lists,
+            changing supplier costs, stock quantities, retail and wholesale sales, customer credit, warranty items,
+            purchases and operational activities that all need to stay connected.
           </p>
           <p>
-            The project began with the checkout experience and expanded as new operational problems appeared. Instead
-            of treating every feature as an isolated screen, the system was shaped around the lifecycle of a real
-            transaction: purchase stock, sell an item, record the customer, handle warranty, report the result and
-            support the next operational step.
+            I built Shenvix POS around Sudeepa Hardware's actual workflows. The system grew from product management and
+            invoicing into supplier records, GRN / purchases, outstanding balances, warranty, returns, rentals,
+            manufacturing, lorry-delivery operations, reports, audit logs and backup / restore.
           </p>
         </div>
       </section>
@@ -343,63 +343,60 @@ function ShenvixCaseStudy({ project }) {
       <section className="section screenshot-section">
         <div className="section-heading">
           <div>
-            <Eyebrow>02 / INTERFACE</Eyebrow>
-            <h2>Designed for daily use, not just a demo.</h2>
+            <Eyebrow>02 / REAL INTERFACE</Eyebrow>
+            <h2>Actual Shenvix POS screens from Sudeepa Hardware.</h2>
           </div>
-          <p className="screenshot-note">UI previews — ready to replace with your real screenshots.</p>
+          <p className="screenshot-note">Real application screenshots — not mockups.</p>
         </div>
 
-        <div className="shot-featured">
-          <div className="shot-browser">
-            <div className="shot-topbar"><span></span><span></span><span></span><small>Shenvix POS / Checkout</small></div>
-            <div className="pos-mock">
-              <aside className="pos-sidebar">
-                <b>SHENVIX</b>
-                {['Sell', 'Products', 'Customers', 'Warranty', 'Reports', 'Settings'].map((item, i) => (
-                  <span className={i === 0 ? 'active' : ''} key={item}>{item}</span>
-                ))}
-              </aside>
-              <div className="pos-main">
-                <div className="pos-search">Search product, barcode or quick item...</div>
-                <div className="pos-products">
-                  {['PVC Fitting', 'LED Bulb', 'Tap Set', 'Paint Brush', 'Switch', 'Sealant'].map((item, i) => (
-                    <div key={item}><span>0{i + 1}</span><b>{item}</b><small>In stock</small></div>
-                  ))}
-                </div>
-              </div>
-              <div className="pos-bill">
-                <span>CURRENT BILL</span>
-                <div><b>PVC Fitting</b><small>2 × 450</small></div>
-                <div><b>LED Bulb</b><small>1 × 1,250</small></div>
-                <div className="pos-total"><span>Total</span><strong>LKR 2,150</strong></div>
-                <button type="button">PAY & PRINT</button>
-              </div>
+        <div className="real-shot-featured">
+          <div className="real-shot-frame">
+            <img src="/projects/shenvix/dashboard.webp" alt="Shenvix POS dashboard built for Sudeepa Hardware" loading="lazy" />
+          </div>
+          <div className="shot-caption">
+            <span>01</span>
+            <div>
+              <strong>Business dashboard</strong>
+              <p>Sales, profit, expenses, invoice count, stock value, outstanding balances, load operations and driver-job visibility in one owner/admin view.</p>
             </div>
           </div>
-          <div className="shot-caption"><span>01</span><div><strong>Checkout workspace</strong><p>Fast product lookup, current bill management and payment / receipt workflow.</p></div></div>
         </div>
 
-        <div className="shot-grid">
+        <div className="real-shot-grid">
           <article>
-            <div className="mini-dashboard">
-              <div className="mini-header"><span>OWNER DASHBOARD</span><b>Today</b></div>
-              <div className="mini-stats"><div><small>Sales</small><strong>128K</strong></div><div><small>Profit</small><strong>31K</strong></div><div><small>Bills</small><strong>42</strong></div></div>
-              <div className="mini-bars">{[70,45,82,58,92,65,78].map((h,i)=><i key={i} style={{height: h + '%'}}></i>)}</div>
+            <div className="real-shot-frame">
+              <img src="/projects/shenvix/products.webp" alt="Shenvix POS product management screen" loading="lazy" />
             </div>
-            <div className="shot-caption"><span>02</span><div><strong>Reporting & visibility</strong><p>Operational summaries designed for owners and daily decisions.</p></div></div>
+            <div className="shot-caption">
+              <span>02</span>
+              <div>
+                <strong>Product & stock management</strong>
+                <p>Product codes, supplier, category, brand, cost, retail and wholesale pricing, quantity, reorder level, rack, warranty and expiry data.</p>
+              </div>
+            </div>
           </article>
 
           <article>
-            <div className="mini-ops">
-              <div className="mini-header"><span>OPERATIONS</span><b>Live workflow</b></div>
-              {[
-                ['Delivery #204', 'Loading', 'Driver assigned'],
-                ['Block Production', 'Active', 'Materials recorded'],
-                ['Rental #R88', 'Due today', 'Advance received'],
-              ].map(([a,b,c]) => <div className="ops-row" key={a}><span className="ops-dot"></span><div><strong>{a}</strong><small>{c}</small></div><b>{b}</b></div>)}
+            <div className="real-shot-frame">
+              <img src="/projects/shenvix/sales.webp" alt="Shenvix POS retail sales and invoicing screen" loading="lazy" />
             </div>
-            <div className="shot-caption"><span>03</span><div><strong>Extended operations</strong><p>Delivery, manufacturing and rental workflows beyond the traditional POS boundary.</p></div></div>
+            <div className="shot-caption">
+              <span>03</span>
+              <div>
+                <strong>Retail sales / invoicing</strong>
+                <p>Barcode and item entry, customer details, payment state, discounts, warranty, held bills, voids, drawer control, reprints and invoice operations.</p>
+              </div>
+            </div>
           </article>
+        </div>
+
+        <div className="screen-inventory">
+          <span>OTHER WORKFLOWS IN THE SYSTEM</span>
+          <div>
+            {['Suppliers', 'GRN / Purchases', 'Reports', 'Backup / Restore', 'Warranty', 'Sales Return', 'Outstanding', 'Rentals', 'Manufacturing', 'Audit Logs'].map(item => (
+              <small key={item}>{item}</small>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -504,9 +501,9 @@ function ShenvixCaseStudy({ project }) {
         <Eyebrow>08 / OUTCOME</Eyebrow>
         <h2>More than a student CRUD project.</h2>
         <p>
-          Shenvix POS became a practical exercise in product ownership: understanding business processes, designing
-          workflows, maintaining a growing data model, integrating hardware and extending a desktop application into
-          new operational domains.
+          Shenvix POS became a real business system built around Sudeepa Hardware's operations: hardware retail and
+          wholesale sales, inventory, purchasing, supplier management, warranty, credit, rentals, manufacturing,
+          delivery, reporting and recovery workflows in one expanding desktop platform.
         </p>
         <div className="outcome-actions">
           <Link className="button primary" to="/projects/book4tech">Next project <span>→</span></Link>
