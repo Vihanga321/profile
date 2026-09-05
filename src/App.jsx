@@ -277,7 +277,7 @@ function ShenvixCaseStudy({ project }) {
   ]
 
   const contributions = [
-    'Translated Sudeepa Hardware's real retail and back-office workflows into the product structure, from checkout through stock, purchasing and operations.',
+    "Translated Sudeepa Hardware's real retail and back-office workflows into the product structure, from checkout through stock, purchasing and operations.",
     'Built the desktop application stack with Electron, React and TypeScript.',
     'Designed and evolved the local data layer using Prisma and SQLite.',
     'Implemented retail / wholesale sales, product, stock, customer, warranty, supplier, GRN / purchases, outstanding and reporting workflows.',
