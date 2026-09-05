@@ -28,15 +28,15 @@ export const projects = [
     slug: 'shenvix-pos',
     number: '02',
     title: 'Shenvix POS',
-    category: 'Business Software',
+    category: 'Retail / Hardware Store Business Software',
     summary:
-      'A modular point-of-sale and business management ecosystem for sales, inventory, warranty, delivery, manufacturing and rental workflows.',
+      'A custom POS and business operations system built for Sudeepa Hardware, covering retail / wholesale sales, inventory, suppliers, purchasing, warranty, credit, rentals, manufacturing and delivery.',
     stack: ['Electron', 'React', 'TypeScript', 'Prisma', 'SQLite'],
     highlights: [
-      'Sales and inventory workflows',
-      'Warranty and customer management',
-      'Reports and operational controls',
-      'Extended delivery and manufacturing modules',
+      'Built for Sudeepa Hardware',
+      'Retail / wholesale POS and hardware inventory',
+      'Suppliers, GRN / purchases, warranty and credit',
+      'Rentals, manufacturing, delivery, reports and backups',
     ],
   },
   {
