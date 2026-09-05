@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Link, NavLink, Route, Routes, useParams } from 'react-router-dom'
 import { profile, projects, skills } from './data/portfolio'
 
 function Shell({ children }) {
+  const [menuOpen, setMenuOpen] = useState(false)
   const links = [
     ['/', 'Home'],
     ['/about', 'About'],
@@ -12,10 +14,13 @@ function Shell({ children }) {
     ['/contact', 'Contact'],
   ]
 
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <div className="site-shell">
       <header className="nav-wrap">
-        <Link className="brand" to="/">V<span>.</span></Link>
+        <Link className="brand" to="/" onClick={closeMenu}>V<span>.</span></Link>
+
         <nav className="nav-links">
           {links.map(([to, label]) => (
             <NavLink key={to} to={to} end={to === '/'}>
@@ -23,15 +28,43 @@ function Shell({ children }) {
             </NavLink>
           ))}
         </nav>
-        <a className="nav-cta" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+
+        <div className="nav-actions">
+          <a className="nav-cta" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+          <button
+            className="menu-button"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(value => !value)}
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+
+        <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+          <div className="mobile-menu-links">
+            {links.map(([to, label], index) => (
+              <NavLink key={to} to={to} end={to === '/'} onClick={closeMenu}>
+                <span>0{index + 1}</span>{label}
+              </NavLink>
+            ))}
+          </div>
+          <a className="mobile-github" href={profile.github} target="_blank" rel="noreferrer">GitHub / @Vihanga321 ↗</a>
+        </div>
       </header>
+
       <main>{children}</main>
+
       <footer>
         <div>
           <strong>{profile.name}</strong>
           <p>Cybersecurity · Software · Products</p>
         </div>
-        <p>Built with React + Vite</p>
+        <div className="footer-right">
+          <a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+          <p>Built with React + Vite</p>
+        </div>
       </footer>
     </div>
   )
@@ -46,36 +79,89 @@ function Home() {
     <>
       <section className="hero">
         <div className="hero-copy">
-          <Eyebrow>AVAILABLE FOR OPPORTUNITIES</Eyebrow>
+          <div className="availability"><span></span>AVAILABLE FOR OPPORTUNITIES</div>
           <h1>VIHANGA<br/><span>APPUHAMY</span></h1>
           <p className="hero-role">CYBERSECURITY × SOFTWARE × PRODUCTS</p>
           <p className="hero-intro">{profile.intro}</p>
+
           <div className="hero-actions">
-            <Link className="button primary" to="/projects">Explore my work</Link>
+            <Link className="button primary" to="/projects">Explore my work <span>↗</span></Link>
             <Link className="button ghost" to="/resume">View CV</Link>
           </div>
+
+          <div className="hero-meta">
+            <span>Based in Sri Lanka</span>
+            <span>GitHub / @Vihanga321</span>
+          </div>
         </div>
-        <div className="hero-panel">
-          <div className="terminal-head"><span></span><span></span><span></span></div>
-          <code>
-            <b>vihanga@portfolio</b>:~$ whoami<br/><br/>
-            Cybersecurity undergraduate<br/>
-            Software developer<br/>
-            Product builder<br/><br/>
-            <b>focus:</b> secure, practical systems<br/>
-            <b>location:</b> Sri Lanka<br/>
-            <b>status:</b> building_
-          </code>
+
+        <div className="hero-visual">
+          <div className="visual-orbit orbit-one"></div>
+          <div className="visual-orbit orbit-two"></div>
+          <div className="hero-panel">
+            <div className="terminal-head">
+              <div><span></span><span></span><span></span></div>
+              <small>portfolio.sh</small>
+            </div>
+            <code>
+              <em>$</em> whoami<br/><br/>
+              <b>Vihanga Appuhamy</b><br/>
+              Cybersecurity undergraduate<br/>
+              Software developer<br/>
+              Product builder<br/><br/>
+              <em>$</em> cat focus.txt<br/>
+              secure systems<br/>
+              practical software<br/>
+              real-world products<br/><br/>
+              <em>$</em> status<br/>
+              <b className="status-text">building_</b>
+            </code>
+          </div>
         </div>
+      </section>
+
+      <section className="proof-strip">
+        <div><strong>04</strong><span>Featured projects</span></div>
+        <div><strong>03</strong><span>Core disciplines</span></div>
+        <div><strong>01</strong><span>Goal: build useful systems</span></div>
+        <div className="proof-note"><span>Security-minded.</span><span>Product-focused.</span></div>
       </section>
 
       <section className="section">
         <div className="section-heading">
-          <div><Eyebrow>SELECTED WORK</Eyebrow><h2>Projects that show how I build.</h2></div>
+          <div>
+            <Eyebrow>SELECTED WORK / 2026</Eyebrow>
+            <h2>Projects that show how I think and build.</h2>
+          </div>
           <Link to="/projects">View all projects →</Link>
         </div>
+
         <div className="project-grid">
           {projects.map(project => <ProjectCard project={project} key={project.slug} />)}
+        </div>
+      </section>
+
+      <section className="section philosophy">
+        <div className="philosophy-lead">
+          <Eyebrow>HOW I WORK</Eyebrow>
+          <h2>Understand the system.<br/>Find the problem.<br/><span>Build the fix.</span></h2>
+        </div>
+        <div className="philosophy-grid">
+          <article>
+            <span>01</span>
+            <h3>Security first</h3>
+            <p>I look at attack surfaces, failure points and trust boundaries—not only whether a feature works.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Build practically</h3>
+            <p>I prefer working systems, prototypes and measurable outcomes over ideas that only live in slides.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Think like a product</h3>
+            <p>I connect technical choices to the user, business workflow and the real problem the software needs to solve.</p>
+          </article>
         </div>
       </section>
 
@@ -83,21 +169,28 @@ function Home() {
         <div>
           <Eyebrow>CAPABILITIES</Eyebrow>
           <h2>Security thinking.<br/>Product execution.</h2>
+          <p className="section-copy">My strongest work happens where software, infrastructure and security overlap.</p>
         </div>
+
         <div className="skill-list">
-          {Object.entries(skills).map(([group, items]) => (
+          {Object.entries(skills).map(([group, items], index) => (
             <div className="skill-group" key={group}>
-              <h3>{group}</h3>
-              <p>{items.join(' · ')}</p>
+              <span>0{index + 1}</span>
+              <div>
+                <h3>{group}</h3>
+                <p>{items.join(' · ')}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       <section className="cta-band">
-        <Eyebrow>LET'S CONNECT</Eyebrow>
-        <h2>Have a project, opportunity or interesting problem?</h2>
-        <Link className="button primary" to="/contact">Contact me →</Link>
+        <div>
+          <Eyebrow>LET'S CONNECT</Eyebrow>
+          <h2>Have a project, opportunity or interesting problem?</h2>
+        </div>
+        <Link className="round-link" to="/contact" aria-label="Contact Vihanga">↗</Link>
       </section>
     </>
   )
@@ -105,11 +198,14 @@ function Home() {
 
 function ProjectCard({ project }) {
   return (
-    <Link className="project-card" to={'/projects/' + project.slug}>
-      <div className="project-top"><span>{project.number}</span><span>↗</span></div>
-      <p className="muted">{project.category}</p>
-      <h3>{project.title}</h3>
-      <p>{project.summary}</p>
+    <Link className={`project-card project-${project.number}`} to={'/projects/' + project.slug}>
+      <div className="project-card-bg">{project.number}</div>
+      <div className="project-top"><span>{project.number}</span><span className="project-arrow">↗</span></div>
+      <div className="project-body">
+        <p className="muted">{project.category}</p>
+        <h3>{project.title}</h3>
+        <p>{project.summary}</p>
+      </div>
       <div className="chips">{project.stack.slice(0, 4).map(item => <span key={item}>{item}</span>)}</div>
     </Link>
   )
